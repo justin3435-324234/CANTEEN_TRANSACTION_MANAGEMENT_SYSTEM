@@ -22,9 +22,13 @@ Partial Class frmDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlMainContent = New System.Windows.Forms.Panel()
         Me.pnlDashboardView = New System.Windows.Forms.Panel()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -51,6 +55,33 @@ Partial Class frmDashboard
         Me.btnSalaryDeduction = New System.Windows.Forms.Button()
         Me.btnInventory = New System.Windows.Forms.Button()
         Me.btnDashboard = New System.Windows.Forms.Button()
+        Me.lblTitleDashboard = New System.Windows.Forms.Label()
+        Me.pnlHeader = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.flowLayoutPanelActions = New System.Windows.Forms.FlowLayoutPanel()
+        Me.btnEdit = New System.Windows.Forms.Button()
+        Me.btnView = New System.Windows.Forms.Button()
+        Me.btnEdit1 = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.cmbRoleFilter = New System.Windows.Forms.ComboBox()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.dgvTextBoxColumn = New System.Windows.Forms.DataGridView()
+        Me.colEmpNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colPosition = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colSDRemaining = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DeductionStatus = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.pnlTotalEmployees = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.pnlLimitReached = New System.Windows.Forms.Panel()
+        Me.lblSubtitle = New System.Windows.Forms.Label()
+        Me.lblTotalEmployees = New System.Windows.Forms.Label()
+        Me.lblTotalEmployeesCount = New System.Windows.Forms.Label()
+        Me.pnlPendingDeductions = New System.Windows.Forms.Label()
+        Me.lblPendingCount = New System.Windows.Forms.Label()
+        Me.lblLimitReachedTitle = New System.Windows.Forms.Label()
+        Me.lblLimitReachedCount = New System.Windows.Forms.Label()
         Me.pnlMainContent.SuspendLayout()
         Me.pnlDashboardView.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +89,14 @@ Partial Class frmDashboard
         Me.cardItemsSold.SuspendLayout()
         Me.cardTransactions.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.pnlSalaryDeductionView.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
+        Me.pnlHeader.SuspendLayout()
+        Me.flowLayoutPanelActions.SuspendLayout()
+        CType(Me.dgvTextBoxColumn, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlTotalEmployees.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.pnlLimitReached.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlMainContent
@@ -93,18 +131,18 @@ Partial Class frmDashboard
         'Chart1
         '
         Me.Chart1.BackColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
-        ChartArea4.BorderColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
-        ChartArea4.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea4)
-        Legend4.Enabled = False
-        Legend4.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend4)
+        ChartArea1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Enabled = False
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(303, 111)
         Me.Chart1.Name = "Chart1"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.Chart1.Series.Add(Series4)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(378, 202)
         Me.Chart1.TabIndex = 5
         Me.Chart1.Text = "Chart1"
@@ -251,6 +289,14 @@ Partial Class frmDashboard
         '
         'pnlSalaryDeductionView
         '
+        Me.pnlSalaryDeductionView.Controls.Add(Me.pnlLimitReached)
+        Me.pnlSalaryDeductionView.Controls.Add(Me.Panel3)
+        Me.pnlSalaryDeductionView.Controls.Add(Me.pnlTotalEmployees)
+        Me.pnlSalaryDeductionView.Controls.Add(Me.dgvTextBoxColumn)
+        Me.pnlSalaryDeductionView.Controls.Add(Me.txtSearch)
+        Me.pnlSalaryDeductionView.Controls.Add(Me.cmbRoleFilter)
+        Me.pnlSalaryDeductionView.Controls.Add(Me.flowLayoutPanelActions)
+        Me.pnlSalaryDeductionView.Controls.Add(Me.pnlHeader)
         Me.pnlSalaryDeductionView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlSalaryDeductionView.Location = New System.Drawing.Point(0, 0)
         Me.pnlSalaryDeductionView.Name = "pnlSalaryDeductionView"
@@ -276,6 +322,7 @@ Partial Class frmDashboard
         'pnlSidebar
         '
         Me.pnlSidebar.BackColor = System.Drawing.Color.Gold
+        Me.pnlSidebar.Controls.Add(Me.lblTitleDashboard)
         Me.pnlSidebar.Controls.Add(Me.btnLogout)
         Me.pnlSidebar.Controls.Add(Me.btnSettings)
         Me.pnlSidebar.Controls.Add(Me.btnReports)
@@ -316,7 +363,7 @@ Partial Class frmDashboard
         Me.btnReports.FlatAppearance.BorderSize = 0
         Me.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReports.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReports.Location = New System.Drawing.Point(18, 258)
+        Me.btnReports.Location = New System.Drawing.Point(18, 111)
         Me.btnReports.Name = "btnReports"
         Me.btnReports.Size = New System.Drawing.Size(162, 23)
         Me.btnReports.TabIndex = 28
@@ -328,11 +375,11 @@ Partial Class frmDashboard
         Me.btnSalaryDeduction.FlatAppearance.BorderSize = 0
         Me.btnSalaryDeduction.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalaryDeduction.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalaryDeduction.Location = New System.Drawing.Point(3, 198)
+        Me.btnSalaryDeduction.Location = New System.Drawing.Point(0, 140)
         Me.btnSalaryDeduction.Name = "btnSalaryDeduction"
-        Me.btnSalaryDeduction.Size = New System.Drawing.Size(197, 41)
+        Me.btnSalaryDeduction.Size = New System.Drawing.Size(197, 25)
         Me.btnSalaryDeduction.TabIndex = 27
-        Me.btnSalaryDeduction.Text = "Employee SalaryDeduction Management"
+        Me.btnSalaryDeduction.Text = "Employee Salary Deduction"
         Me.btnSalaryDeduction.UseVisualStyleBackColor = True
         '
         'btnInventory
@@ -340,7 +387,7 @@ Partial Class frmDashboard
         Me.btnInventory.FlatAppearance.BorderSize = 0
         Me.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnInventory.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnInventory.Location = New System.Drawing.Point(18, 169)
+        Me.btnInventory.Location = New System.Drawing.Point(18, 82)
         Me.btnInventory.Name = "btnInventory"
         Me.btnInventory.Size = New System.Drawing.Size(162, 23)
         Me.btnInventory.TabIndex = 25
@@ -352,12 +399,325 @@ Partial Class frmDashboard
         Me.btnDashboard.FlatAppearance.BorderSize = 0
         Me.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDashboard.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDashboard.Location = New System.Drawing.Point(18, 140)
+        Me.btnDashboard.Location = New System.Drawing.Point(18, 53)
         Me.btnDashboard.Name = "btnDashboard"
         Me.btnDashboard.Size = New System.Drawing.Size(162, 23)
         Me.btnDashboard.TabIndex = 21
         Me.btnDashboard.Text = "Dashboard"
         Me.btnDashboard.UseVisualStyleBackColor = True
+        '
+        'lblTitleDashboard
+        '
+        Me.lblTitleDashboard.AutoSize = True
+        Me.lblTitleDashboard.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitleDashboard.Location = New System.Drawing.Point(56, 9)
+        Me.lblTitleDashboard.Name = "lblTitleDashboard"
+        Me.lblTitleDashboard.Size = New System.Drawing.Size(141, 15)
+        Me.lblTitleDashboard.TabIndex = 0
+        Me.lblTitleDashboard.Text = "LYCEUM OF ALABANG"
+        '
+        'pnlHeader
+        '
+        Me.pnlHeader.Controls.Add(Me.lblSubtitle)
+        Me.pnlHeader.Controls.Add(Me.Label1)
+        Me.pnlHeader.Location = New System.Drawing.Point(203, 0)
+        Me.pnlHeader.Name = "pnlHeader"
+        Me.pnlHeader.Size = New System.Drawing.Size(597, 51)
+        Me.pnlHeader.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(6, 4)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(373, 21)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "EMPLOYEE SALARY DEDUCTION MANAGEMENT"
+        '
+        'flowLayoutPanelActions
+        '
+        Me.flowLayoutPanelActions.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.flowLayoutPanelActions.Controls.Add(Me.btnEdit1)
+        Me.flowLayoutPanelActions.Controls.Add(Me.btnEdit)
+        Me.flowLayoutPanelActions.Controls.Add(Me.btnView)
+        Me.flowLayoutPanelActions.Controls.Add(Me.btnDelete)
+        Me.flowLayoutPanelActions.Location = New System.Drawing.Point(221, 171)
+        Me.flowLayoutPanelActions.Name = "flowLayoutPanelActions"
+        Me.flowLayoutPanelActions.Size = New System.Drawing.Size(361, 31)
+        Me.flowLayoutPanelActions.TabIndex = 1
+        '
+        'btnEdit
+        '
+        Me.btnEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(90, Byte), Integer))
+        Me.btnEdit.FlatAppearance.BorderSize = 0
+        Me.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEdit.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEdit.ForeColor = System.Drawing.Color.White
+        Me.btnEdit.Location = New System.Drawing.Point(90, 3)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(81, 25)
+        Me.btnEdit.TabIndex = 1
+        Me.btnEdit.Text = "ADD"
+        Me.btnEdit.UseVisualStyleBackColor = False
+        '
+        'btnView
+        '
+        Me.btnView.BackColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.btnView.FlatAppearance.BorderSize = 0
+        Me.btnView.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(155, Byte), Integer))
+        Me.btnView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(155, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnView.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnView.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.btnView.Location = New System.Drawing.Point(177, 3)
+        Me.btnView.Name = "btnView"
+        Me.btnView.Size = New System.Drawing.Size(81, 25)
+        Me.btnView.TabIndex = 2
+        Me.btnView.Text = "VIEW"
+        Me.btnView.UseVisualStyleBackColor = False
+        '
+        'btnEdit1
+        '
+        Me.btnEdit1.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnEdit1.FlatAppearance.BorderSize = 0
+        Me.btnEdit1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.btnEdit1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen
+        Me.btnEdit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEdit1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEdit1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.btnEdit1.Location = New System.Drawing.Point(3, 3)
+        Me.btnEdit1.Name = "btnEdit1"
+        Me.btnEdit1.Size = New System.Drawing.Size(81, 25)
+        Me.btnEdit1.TabIndex = 3
+        Me.btnEdit1.Text = "EDIT"
+        Me.btnEdit1.UseVisualStyleBackColor = False
+        '
+        'btnDelete
+        '
+        Me.btnDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(83, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.btnDelete.FlatAppearance.BorderSize = 0
+        Me.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(115, Byte), Integer))
+        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelete.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.btnDelete.Location = New System.Drawing.Point(264, 3)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(81, 25)
+        Me.btnDelete.TabIndex = 4
+        Me.btnDelete.Text = "DELETE"
+        Me.btnDelete.UseVisualStyleBackColor = False
+        '
+        'cmbRoleFilter
+        '
+        Me.cmbRoleFilter.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.cmbRoleFilter.ForeColor = System.Drawing.Color.White
+        Me.cmbRoleFilter.FormattingEnabled = True
+        Me.cmbRoleFilter.Items.AddRange(New Object() {"All Roles ", "Teacher", "Staff"})
+        Me.cmbRoleFilter.Location = New System.Drawing.Point(630, 160)
+        Me.cmbRoleFilter.Name = "cmbRoleFilter"
+        Me.cmbRoleFilter.Size = New System.Drawing.Size(154, 21)
+        Me.cmbRoleFilter.TabIndex = 2
+        '
+        'txtSearch
+        '
+        Me.txtSearch.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.txtSearch.Location = New System.Drawing.Point(630, 187)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(154, 20)
+        Me.txtSearch.TabIndex = 3
+        Me.txtSearch.Text = "🔍 Search employee name or ID..."
+        '
+        'dgvTextBoxColumn
+        '
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.dgvTextBoxColumn.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvTextBoxColumn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvTextBoxColumn.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
+        Me.dgvTextBoxColumn.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(11, Byte), Integer), CType(CType(92, Byte), Integer))
+        Me.dgvTextBoxColumn.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvTextBoxColumn.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(91, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvTextBoxColumn.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvTextBoxColumn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvTextBoxColumn.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colEmpNo, Me.colName, Me.colPosition, Me.colSDRemaining, Me.colStatus, Me.DeductionStatus})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.DarkGray
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvTextBoxColumn.GridColor = System.Drawing.Color.Gainsboro
+        Me.dgvTextBoxColumn.Location = New System.Drawing.Point(213, 213)
+        Me.dgvTextBoxColumn.Name = "dgvTextBoxColumn"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(210, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvTextBoxColumn.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgvTextBoxColumn.RowHeadersVisible = False
+        Me.dgvTextBoxColumn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvTextBoxColumn.Size = New System.Drawing.Size(584, 225)
+        Me.dgvTextBoxColumn.TabIndex = 5
+        '
+        'colEmpNo
+        '
+        Me.colEmpNo.HeaderText = "Employee No"
+        Me.colEmpNo.Name = "colEmpNo"
+        Me.colEmpNo.Width = 114
+        '
+        'colName
+        '
+        Me.colName.HeaderText = "Full Name"
+        Me.colName.Name = "colName"
+        Me.colName.Width = 94
+        '
+        'colPosition
+        '
+        Me.colPosition.HeaderText = "Position"
+        Me.colPosition.Name = "colPosition"
+        Me.colPosition.Width = 82
+        '
+        'colSDRemaining
+        '
+        Me.colSDRemaining.HeaderText = "SD Remaining"
+        Me.colSDRemaining.Name = "colSDRemaining"
+        Me.colSDRemaining.Width = 117
+        '
+        'colStatus
+        '
+        Me.colStatus.HeaderText = "Status"
+        Me.colStatus.Name = "colStatus"
+        Me.colStatus.Width = 71
+        '
+        'DeductionStatus
+        '
+        Me.DeductionStatus.HeaderText = "Deduction Status"
+        Me.DeductionStatus.Items.AddRange(New Object() {"PENDING", "COMPLETE"})
+        Me.DeductionStatus.Name = "DeductionStatus"
+        Me.DeductionStatus.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DeductionStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.DeductionStatus.Width = 137
+        '
+        'pnlTotalEmployees
+        '
+        Me.pnlTotalEmployees.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlTotalEmployees.Controls.Add(Me.lblTotalEmployeesCount)
+        Me.pnlTotalEmployees.Controls.Add(Me.lblTotalEmployees)
+        Me.pnlTotalEmployees.Location = New System.Drawing.Point(225, 61)
+        Me.pnlTotalEmployees.Name = "pnlTotalEmployees"
+        Me.pnlTotalEmployees.Size = New System.Drawing.Size(167, 84)
+        Me.pnlTotalEmployees.TabIndex = 6
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.lblPendingCount)
+        Me.Panel3.Controls.Add(Me.pnlPendingDeductions)
+        Me.Panel3.Location = New System.Drawing.Point(415, 61)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(167, 84)
+        Me.Panel3.TabIndex = 7
+        '
+        'pnlLimitReached
+        '
+        Me.pnlLimitReached.Controls.Add(Me.lblLimitReachedCount)
+        Me.pnlLimitReached.Controls.Add(Me.lblLimitReachedTitle)
+        Me.pnlLimitReached.Location = New System.Drawing.Point(602, 61)
+        Me.pnlLimitReached.Name = "pnlLimitReached"
+        Me.pnlLimitReached.Size = New System.Drawing.Size(167, 84)
+        Me.pnlLimitReached.TabIndex = 7
+        '
+        'lblSubtitle
+        '
+        Me.lblSubtitle.AutoSize = True
+        Me.lblSubtitle.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubtitle.ForeColor = System.Drawing.Color.White
+        Me.lblSubtitle.Location = New System.Drawing.Point(7, 25)
+        Me.lblSubtitle.Name = "lblSubtitle"
+        Me.lblSubtitle.Size = New System.Drawing.Size(234, 15)
+        Me.lblSubtitle.TabIndex = 1
+        Me.lblSubtitle.Text = "Manage employees and salary deductions  "
+        '
+        'lblTotalEmployees
+        '
+        Me.lblTotalEmployees.AutoSize = True
+        Me.lblTotalEmployees.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalEmployees.ForeColor = System.Drawing.Color.White
+        Me.lblTotalEmployees.Location = New System.Drawing.Point(13, 11)
+        Me.lblTotalEmployees.Name = "lblTotalEmployees"
+        Me.lblTotalEmployees.Size = New System.Drawing.Size(141, 20)
+        Me.lblTotalEmployees.TabIndex = 0
+        Me.lblTotalEmployees.Text = "TOTAL EMPLOYEES"
+        '
+        'lblTotalEmployeesCount
+        '
+        Me.lblTotalEmployeesCount.AutoSize = True
+        Me.lblTotalEmployeesCount.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalEmployeesCount.ForeColor = System.Drawing.Color.Gold
+        Me.lblTotalEmployeesCount.Location = New System.Drawing.Point(64, 42)
+        Me.lblTotalEmployeesCount.Name = "lblTotalEmployeesCount"
+        Me.lblTotalEmployeesCount.Size = New System.Drawing.Size(25, 30)
+        Me.lblTotalEmployeesCount.TabIndex = 1
+        Me.lblTotalEmployeesCount.Text = "0"
+        '
+        'pnlPendingDeductions
+        '
+        Me.pnlPendingDeductions.AutoSize = True
+        Me.pnlPendingDeductions.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pnlPendingDeductions.ForeColor = System.Drawing.Color.White
+        Me.pnlPendingDeductions.Location = New System.Drawing.Point(11, 14)
+        Me.pnlPendingDeductions.Name = "pnlPendingDeductions"
+        Me.pnlPendingDeductions.Size = New System.Drawing.Size(153, 17)
+        Me.pnlPendingDeductions.TabIndex = 2
+        Me.pnlPendingDeductions.Text = "PENDING DEDUCTIONS"
+        '
+        'lblPendingCount
+        '
+        Me.lblPendingCount.AutoSize = True
+        Me.lblPendingCount.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPendingCount.ForeColor = System.Drawing.Color.Gold
+        Me.lblPendingCount.Location = New System.Drawing.Point(65, 42)
+        Me.lblPendingCount.Name = "lblPendingCount"
+        Me.lblPendingCount.Size = New System.Drawing.Size(25, 30)
+        Me.lblPendingCount.TabIndex = 3
+        Me.lblPendingCount.Text = "0"
+        '
+        'lblLimitReachedTitle
+        '
+        Me.lblLimitReachedTitle.AutoSize = True
+        Me.lblLimitReachedTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLimitReachedTitle.ForeColor = System.Drawing.Color.White
+        Me.lblLimitReachedTitle.Location = New System.Drawing.Point(24, 11)
+        Me.lblLimitReachedTitle.Name = "lblLimitReachedTitle"
+        Me.lblLimitReachedTitle.Size = New System.Drawing.Size(122, 20)
+        Me.lblLimitReachedTitle.TabIndex = 0
+        Me.lblLimitReachedTitle.Text = "LIMIT REACHED"
+        '
+        'lblLimitReachedCount
+        '
+        Me.lblLimitReachedCount.AutoSize = True
+        Me.lblLimitReachedCount.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLimitReachedCount.ForeColor = System.Drawing.Color.Gold
+        Me.lblLimitReachedCount.Location = New System.Drawing.Point(67, 42)
+        Me.lblLimitReachedCount.Name = "lblLimitReachedCount"
+        Me.lblLimitReachedCount.Size = New System.Drawing.Size(25, 30)
+        Me.lblLimitReachedCount.TabIndex = 4
+        Me.lblLimitReachedCount.Text = "0"
         '
         'frmDashboard
         '
@@ -381,7 +741,20 @@ Partial Class frmDashboard
         Me.cardTransactions.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.pnlSalaryDeductionView.ResumeLayout(False)
+        Me.pnlSalaryDeductionView.PerformLayout()
         Me.pnlSidebar.ResumeLayout(False)
+        Me.pnlSidebar.PerformLayout()
+        Me.pnlHeader.ResumeLayout(False)
+        Me.pnlHeader.PerformLayout()
+        Me.flowLayoutPanelActions.ResumeLayout(False)
+        CType(Me.dgvTextBoxColumn, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlTotalEmployees.ResumeLayout(False)
+        Me.pnlTotalEmployees.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.pnlLimitReached.ResumeLayout(False)
+        Me.pnlLimitReached.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -412,4 +785,31 @@ Partial Class frmDashboard
     Friend WithEvents lblItemsSoldVal As Label
     Friend WithEvents lblItemsTitle As Label
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents lblTitleDashboard As Label
+    Friend WithEvents pnlHeader As Panel
+    Friend WithEvents flowLayoutPanelActions As FlowLayoutPanel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents btnEdit As Button
+    Friend WithEvents btnView As Button
+    Friend WithEvents btnEdit1 As Button
+    Friend WithEvents btnDelete As Button
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents cmbRoleFilter As ComboBox
+    Friend WithEvents dgvTextBoxColumn As DataGridView
+    Friend WithEvents colEmpNo As DataGridViewTextBoxColumn
+    Friend WithEvents colName As DataGridViewTextBoxColumn
+    Friend WithEvents colPosition As DataGridViewTextBoxColumn
+    Friend WithEvents colSDRemaining As DataGridViewTextBoxColumn
+    Friend WithEvents colStatus As DataGridViewTextBoxColumn
+    Friend WithEvents DeductionStatus As DataGridViewComboBoxColumn
+    Friend WithEvents pnlLimitReached As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents pnlTotalEmployees As Panel
+    Friend WithEvents lblSubtitle As Label
+    Friend WithEvents lblTotalEmployees As Label
+    Friend WithEvents lblTotalEmployeesCount As Label
+    Friend WithEvents lblPendingCount As Label
+    Friend WithEvents pnlPendingDeductions As Label
+    Friend WithEvents lblLimitReachedTitle As Label
+    Friend WithEvents lblLimitReachedCount As Label
 End Class

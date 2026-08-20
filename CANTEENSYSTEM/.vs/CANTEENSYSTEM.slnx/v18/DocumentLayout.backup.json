@@ -11,16 +11,12 @@
       "RelativeMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|solutionrelative:frmpos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|c:\\users\\63945\\onedrive\\desktop\\canteen_transaction_management_system\\canteensystem\\frmdashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|solutionrelative:frmdashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|c:\\users\\63945\\onedrive\\desktop\\canteen_transaction_management_system\\canteensystem\\frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|solutionrelative:frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|C:\\Users\\63945\\OneDrive\\Desktop\\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\\CANTEENSYSTEM\\frmlogin.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|solutionrelative:frmlogin.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|c:\\users\\63945\\onedrive\\desktop\\canteen_transaction_management_system\\canteensystem\\frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|solutionrelative:frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 19,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -102,19 +98,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmDashboard.vb",
-              "DocumentMoniker": "C:\\Users\\63945\\OneDrive\\Desktop\\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\\CANTEENSYSTEM\\frmDashboard.vb",
-              "RelativeDocumentMoniker": "frmDashboard.vb",
-              "ToolTip": "C:\\Users\\63945\\OneDrive\\Desktop\\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\\CANTEENSYSTEM\\frmDashboard.vb",
-              "RelativeToolTip": "frmDashboard.vb",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAEwIIAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-08-20T15:39:41.762Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "frmPOS.vb [Design]",
               "DocumentMoniker": "C:\\Users\\63945\\OneDrive\\Desktop\\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\\CANTEENSYSTEM\\frmPOS.vb",
@@ -131,15 +114,15 @@
               "Title": "frmDashboard.vb [Design]",
               "DocumentMoniker": "C:\\Users\\63945\\OneDrive\\Desktop\\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\\CANTEENSYSTEM\\frmDashboard.vb",
               "RelativeDocumentMoniker": "frmDashboard.vb",
-              "ToolTip": "C:\\Users\\63945\\OneDrive\\Desktop\\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\\CANTEENSYSTEM\\frmDashboard.vb [Design]",
-              "RelativeToolTip": "frmDashboard.vb [Design]",
+              "ToolTip": "C:\\Users\\63945\\OneDrive\\Desktop\\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\\CANTEENSYSTEM\\frmDashboard.vb [Design]*",
+              "RelativeToolTip": "frmDashboard.vb [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2026-08-20T13:59:57.655Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "frmLogin.vb [Design]",
               "DocumentMoniker": "C:\\Users\\63945\\OneDrive\\Desktop\\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\\CANTEENSYSTEM\\frmLogin.vb",
               "RelativeDocumentMoniker": "frmLogin.vb",

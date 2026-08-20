@@ -223,4 +223,7 @@ Public Class frmDashboard
         End If
     End Sub
 
+    Private Sub dgvTextBoxColumn_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTextBoxColumn.CellContentClick
+
+    End Sub
 End Class
