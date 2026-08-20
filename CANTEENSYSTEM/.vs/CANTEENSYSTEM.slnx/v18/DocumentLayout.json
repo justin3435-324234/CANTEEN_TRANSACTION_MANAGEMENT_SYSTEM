@@ -1,0 +1,142 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|c:\\users\\justin\\desktop\\canteensystem\\frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|solutionrelative:frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|c:\\users\\justin\\desktop\\canteensystem\\frmlogin.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|solutionrelative:frmlogin.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\frmpos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|solutionrelative:frmpos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|c:\\users\\justin\\desktop\\canteensystem\\salestracker.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{72836029-AD6F-427D-8D98-54CF26ACF9D4}|CANTEENSYSTEM.vbproj|solutionrelative:salestracker.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SalesTracker.vb",
+              "DocumentMoniker": "C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\SalesTracker.vb",
+              "RelativeDocumentMoniker": "SalesTracker.vb",
+              "ToolTip": "C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\SalesTracker.vb",
+              "RelativeToolTip": "SalesTracker.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-08-20T13:06:10.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:41:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmLogin.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\frmLogin.vb",
+              "RelativeDocumentMoniker": "frmLogin.vb",
+              "ToolTip": "C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\frmLogin.vb [Design]",
+              "RelativeToolTip": "frmLogin.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-08-20T13:05:44.887Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmLogin.Designer.vb",
+              "DocumentMoniker": "C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\frmLogin.Designer.vb",
+              "RelativeDocumentMoniker": "frmLogin.Designer.vb",
+              "ToolTip": "C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\frmLogin.Designer.vb",
+              "RelativeToolTip": "frmLogin.Designer.vb",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAWwIgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-08-20T13:04:55.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmPOS.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\frmPOS.vb",
+              "RelativeDocumentMoniker": "frmPOS.vb",
+              "ToolTip": "C:\\Users\\Justin\\Desktop\\CANTEENSYSTEM\\frmPOS.vb [Design]",
+              "RelativeToolTip": "frmPOS.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-08-20T13:03:25.771Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
