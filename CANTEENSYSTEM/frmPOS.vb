@@ -268,6 +268,30 @@ Public Class frmPOS
         Next
 
         lblGrandTotal.Text = "₱" & grandTotal.ToString("N2")
+        ComputeChange()
+    End Sub
+
+    Private Sub ComputeChange()
+        Dim grandTotal As Decimal = 0
+        Dim amountPaid As Decimal = 0
+
+        If Decimal.TryParse(lblGrandTotal.Text.Replace("₱", "").Replace(",", ""), grandTotal) = False Then
+            grandTotal = 0
+        End If
+
+        If Decimal.TryParse(txtAmountPaid.Text.Trim(), amountPaid) = False Then
+            amountPaid = 0
+        End If
+
+        If amountPaid < grandTotal Then
+            lblChange.Text = "₱0.00"
+        Else
+            lblChange.Text = "₱" & (amountPaid - grandTotal).ToString("N2")
+        End If
+    End Sub
+
+    Private Sub txtAmountPaid_TextChanged(sender As Object, e As EventArgs) Handles txtAmountPaid.TextChanged
+        ComputeChange()
     End Sub
 
 
@@ -431,6 +455,17 @@ Public Class frmPOS
             ' If Not isValid Then Exit Sub
         Else
             paymentMethod = "Cash"
+
+            Dim grandTotal As Decimal = 0
+            Dim amountPaid As Decimal = 0
+            Decimal.TryParse(lblGrandTotal.Text.Replace("₱", "").Replace(",", ""), grandTotal)
+            Decimal.TryParse(txtAmountPaid.Text.Trim(), amountPaid)
+
+            If amountPaid < grandTotal Then
+                PlaySoftSound("error")
+                MessageBox.Show("Insufficient payment! Amount paid is less than the grand total.", "Insufficient Payment", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
         End If
 
         Dim receiptText As String = GenerateReceipt(paymentMethod, empID)
