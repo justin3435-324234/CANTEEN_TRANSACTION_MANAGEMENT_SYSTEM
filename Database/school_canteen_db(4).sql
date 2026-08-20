@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 20, 2026 at 02:06 PM
+-- Host: 127.0.0.1
+-- Generation Time: Aug 20, 2026 at 05:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -72,15 +72,22 @@ CREATE TABLE `employees` (
   `employee_type` enum('Teacher','Employee') NOT NULL,
   `status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `pin` varchar(4) NOT NULL DEFAULT '1234'
+  `pin` varchar(4) NOT NULL DEFAULT '1234',
+  `sd_limit` decimal(10,2) NOT NULL DEFAULT 2500.00,
+  `sd_used` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `sd_remaining` decimal(10,2) NOT NULL DEFAULT 2500.00,
+  `sd_status` varchar(20) NOT NULL DEFAULT 'Available',
+  `deduction_status` varchar(20) NOT NULL DEFAULT 'Pending',
+  `period_start` date DEFAULT NULL,
+  `period_end` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`employee_number`, `full_name`, `position`, `employee_type`, `status`, `created_at`, `pin`) VALUES
-('TCH-001', 'Maria Santos', 'Teacher', 'Teacher', 'Active', '2026-08-19 15:18:14', '1234');
+INSERT INTO `employees` (`employee_number`, `full_name`, `position`, `employee_type`, `status`, `created_at`, `pin`, `sd_limit`, `sd_used`, `sd_remaining`, `sd_status`, `deduction_status`, `period_start`, `period_end`) VALUES
+('TCH-001', 'Maria Santos', 'Teacher', 'Teacher', 'Active', '2026-08-19 15:18:14', '1234', 2500.00, 0.00, 2500.00, 'Available', 'Pending', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -107,14 +114,14 @@ INSERT INTO `products` (`product_id`, `product_name`, `category_id`, `price`, `s
 (102, 'Adobo', 2, 65.00, 9, 5, 'Active', '2026-08-19 18:35:13'),
 (103, 'Longganisa', 2, 45.00, 19, 5, 'Active', '2026-08-19 18:35:13'),
 (104, 'Spam', 2, 45.00, 19, 5, 'Active', '2026-08-19 18:35:13'),
-(105, 'Shanghai', 2, 20.00, 20, 5, 'Active', '2026-08-19 18:35:13'),
-(106, 'Rice', 2, 15.00, 28, 5, 'Active', '2026-08-19 18:35:13'),
+(105, 'Shanghai', 2, 20.00, 19, 5, 'Active', '2026-08-19 18:35:13'),
+(106, 'Rice', 2, 15.00, 27, 5, 'Active', '2026-08-19 18:35:13'),
 (107, 'Siomai Big', 3, 10.00, 30, 5, 'Active', '2026-08-19 18:35:13'),
 (108, 'Siomai Small', 3, 6.00, 24, 5, 'Active', '2026-08-19 18:35:13'),
 (109, 'Siopao', 3, 35.00, 15, 5, 'Active', '2026-08-19 18:35:13'),
 (110, 'Turon', 3, 20.00, 29, 5, 'Active', '2026-08-19 18:35:13'),
 (111, 'Corndog', 3, 35.00, 10, 5, 'Active', '2026-08-19 18:35:13'),
-(112, 'Mineral Water', 4, 15.00, 48, 10, 'Active', '2026-08-19 18:35:13'),
+(112, 'Mineral Water', 4, 15.00, 47, 10, 'Active', '2026-08-19 18:35:13'),
 (113, 'Lipton Ice Tea', 4, 25.00, 19, 5, 'Active', '2026-08-19 18:35:13'),
 (114, 'Milo', 4, 18.00, 28, 5, 'Active', '2026-08-19 18:35:13'),
 (115, 'Kopiko', 4, 18.00, 24, 5, 'Active', '2026-08-19 18:35:13'),

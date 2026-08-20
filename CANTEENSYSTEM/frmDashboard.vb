@@ -55,11 +55,10 @@ Public Class frmDashboard
     Private Sub AddEmojisToSidebar()
         If btnDashboard IsNot Nothing Then btnDashboard.Text = "📊  Dashboard"
 
-        If btnProducts IsNot Nothing Then btnProducts.Text = "📦  Products"
-        If btnCategories IsNot Nothing Then btnCategories.Text = "📁  Categories"
+
+
         If btnInventory IsNot Nothing Then btnInventory.Text = "📋  Inventory"
-        If btnEmployee IsNot Nothing Then btnEmployee.Text = "👥  Employee"
-        If btnSalaryDeduction IsNot Nothing Then btnSalaryDeduction.Text = "💳  SalaryDeduction"
+        If btnSalaryDeduction IsNot Nothing Then btnSalaryDeduction.Text = "💳 Employee Salary Deduction"
         If btnReports IsNot Nothing Then btnReports.Text = "📈  Reports"
         If btnSettings IsNot Nothing Then btnSettings.Text = "⚙️  Settings"
         If btnLogout IsNot Nothing Then btnLogout.Text = "🚪  Logout"
@@ -68,10 +67,7 @@ Public Class frmDashboard
     ' --- SIDEBAR BUTTON CLICK HANDLERS ---
     Private Sub NavigationButtons_Click(sender As Object, e As EventArgs) Handles _
         btnDashboard.Click,
-        btnProducts.Click,
-        btnCategories.Click,
         btnInventory.Click,
-        btnEmployee.Click,
         btnSalaryDeduction.Click,
         btnReports.Click,
         btnSettings.Click,
@@ -96,14 +92,10 @@ Public Class frmDashboard
             Case "btnDashboard"
                 SwitchView(pnlDashboardView, btn)
 
-            Case "btnProducts"
-                If pnlProductsView IsNot Nothing Then SwitchView(pnlProductsView, btn)
-            Case "btnCategories"
-                If pnlCategoriesView IsNot Nothing Then SwitchView(pnlCategoriesView, btn)
+
+
             Case "btnInventory"
                 If pnlInventoryView IsNot Nothing Then SwitchView(pnlInventoryView, btn)
-            Case "btnEmployee"
-                If pnlEmployeeView IsNot Nothing Then SwitchView(pnlEmployeeView, btn)
             Case "btnSalaryDeduction"
                 If pnlSalaryDeductionView IsNot Nothing Then SwitchView(pnlSalaryDeductionView, btn)
             Case "btnReports"
@@ -136,8 +128,8 @@ Public Class frmDashboard
 
     Private Sub ResetSidebarButtonColors()
         Dim sidebarButtons As Button() = {
-            btnDashboard, btnProducts, btnCategories,
-            btnInventory, btnEmployee, btnSalaryDeduction,
+            btnDashboard,
+            btnInventory, btnSalaryDeduction,
             btnReports, btnSettings
         }
 

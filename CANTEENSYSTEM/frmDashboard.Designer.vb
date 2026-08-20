@@ -22,9 +22,9 @@ Partial Class frmDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.pnlMainContent = New System.Windows.Forms.Panel()
         Me.pnlDashboardView = New System.Windows.Forms.Panel()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -40,10 +40,7 @@ Partial Class frmDashboard
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblTodaySalesVal = New System.Windows.Forms.Label()
         Me.lblSalesTitle = New System.Windows.Forms.Label()
-        Me.pnlCategoriesView = New System.Windows.Forms.Panel()
-        Me.pnlProductsView = New System.Windows.Forms.Panel()
         Me.pnlInventoryView = New System.Windows.Forms.Panel()
-        Me.pnlEmployeeView = New System.Windows.Forms.Panel()
         Me.pnlSalaryDeductionView = New System.Windows.Forms.Panel()
         Me.pnlReportsView = New System.Windows.Forms.Panel()
         Me.pnlSettingsView = New System.Windows.Forms.Panel()
@@ -52,10 +49,7 @@ Partial Class frmDashboard
         Me.btnSettings = New System.Windows.Forms.Button()
         Me.btnReports = New System.Windows.Forms.Button()
         Me.btnSalaryDeduction = New System.Windows.Forms.Button()
-        Me.btnEmployee = New System.Windows.Forms.Button()
         Me.btnInventory = New System.Windows.Forms.Button()
-        Me.btnCategories = New System.Windows.Forms.Button()
-        Me.btnProducts = New System.Windows.Forms.Button()
         Me.btnDashboard = New System.Windows.Forms.Button()
         Me.pnlMainContent.SuspendLayout()
         Me.pnlDashboardView.SuspendLayout()
@@ -70,12 +64,9 @@ Partial Class frmDashboard
         'pnlMainContent
         '
         Me.pnlMainContent.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.pnlMainContent.Controls.Add(Me.pnlDashboardView)
-        Me.pnlMainContent.Controls.Add(Me.pnlCategoriesView)
-        Me.pnlMainContent.Controls.Add(Me.pnlProductsView)
-        Me.pnlMainContent.Controls.Add(Me.pnlInventoryView)
-        Me.pnlMainContent.Controls.Add(Me.pnlEmployeeView)
         Me.pnlMainContent.Controls.Add(Me.pnlSalaryDeductionView)
+        Me.pnlMainContent.Controls.Add(Me.pnlDashboardView)
+        Me.pnlMainContent.Controls.Add(Me.pnlInventoryView)
         Me.pnlMainContent.Controls.Add(Me.pnlReportsView)
         Me.pnlMainContent.Controls.Add(Me.pnlSettingsView)
         Me.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill
@@ -102,18 +93,18 @@ Partial Class frmDashboard
         'Chart1
         '
         Me.Chart1.BackColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
-        ChartArea3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea3)
-        Legend3.Enabled = False
-        Legend3.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend3)
+        ChartArea4.BorderColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
+        ChartArea4.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea4)
+        Legend4.Enabled = False
+        Legend4.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend4)
         Me.Chart1.Location = New System.Drawing.Point(303, 111)
         Me.Chart1.Name = "Chart1"
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.Chart1.Series.Add(Series3)
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Me.Chart1.Series.Add(Series4)
         Me.Chart1.Size = New System.Drawing.Size(378, 202)
         Me.Chart1.TabIndex = 5
         Me.Chart1.Text = "Chart1"
@@ -149,7 +140,7 @@ Partial Class frmDashboard
         Me.lblDeductTitle.Name = "lblDeductTitle"
         Me.lblDeductTitle.Size = New System.Drawing.Size(95, 34)
         Me.lblDeductTitle.TabIndex = 0
-        Me.lblDeductTitle.Text = "SALARY" & vbCrLf & " DEDUCTIONS"
+        Me.lblDeductTitle.Text = "SALARY" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " DEDUCTIONS"
         '
         'cardItemsSold
         '
@@ -250,22 +241,6 @@ Partial Class frmDashboard
         Me.lblSalesTitle.TabIndex = 0
         Me.lblSalesTitle.Text = "TODAY'S SALE"
         '
-        'pnlCategoriesView
-        '
-        Me.pnlCategoriesView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlCategoriesView.Location = New System.Drawing.Point(0, 0)
-        Me.pnlCategoriesView.Name = "pnlCategoriesView"
-        Me.pnlCategoriesView.Size = New System.Drawing.Size(800, 450)
-        Me.pnlCategoriesView.TabIndex = 0
-        '
-        'pnlProductsView
-        '
-        Me.pnlProductsView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlProductsView.Location = New System.Drawing.Point(0, 0)
-        Me.pnlProductsView.Name = "pnlProductsView"
-        Me.pnlProductsView.Size = New System.Drawing.Size(800, 450)
-        Me.pnlProductsView.TabIndex = 0
-        '
         'pnlInventoryView
         '
         Me.pnlInventoryView.Dock = System.Windows.Forms.DockStyle.Fill
@@ -273,14 +248,6 @@ Partial Class frmDashboard
         Me.pnlInventoryView.Name = "pnlInventoryView"
         Me.pnlInventoryView.Size = New System.Drawing.Size(800, 450)
         Me.pnlInventoryView.TabIndex = 0
-        '
-        'pnlEmployeeView
-        '
-        Me.pnlEmployeeView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlEmployeeView.Location = New System.Drawing.Point(0, 0)
-        Me.pnlEmployeeView.Name = "pnlEmployeeView"
-        Me.pnlEmployeeView.Size = New System.Drawing.Size(800, 450)
-        Me.pnlEmployeeView.TabIndex = 0
         '
         'pnlSalaryDeductionView
         '
@@ -313,10 +280,7 @@ Partial Class frmDashboard
         Me.pnlSidebar.Controls.Add(Me.btnSettings)
         Me.pnlSidebar.Controls.Add(Me.btnReports)
         Me.pnlSidebar.Controls.Add(Me.btnSalaryDeduction)
-        Me.pnlSidebar.Controls.Add(Me.btnEmployee)
         Me.pnlSidebar.Controls.Add(Me.btnInventory)
-        Me.pnlSidebar.Controls.Add(Me.btnCategories)
-        Me.pnlSidebar.Controls.Add(Me.btnProducts)
         Me.pnlSidebar.Controls.Add(Me.btnDashboard)
         Me.pnlSidebar.Location = New System.Drawing.Point(0, 0)
         Me.pnlSidebar.Name = "pnlSidebar"
@@ -352,7 +316,7 @@ Partial Class frmDashboard
         Me.btnReports.FlatAppearance.BorderSize = 0
         Me.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReports.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReports.Location = New System.Drawing.Point(18, 227)
+        Me.btnReports.Location = New System.Drawing.Point(18, 258)
         Me.btnReports.Name = "btnReports"
         Me.btnReports.Size = New System.Drawing.Size(162, 23)
         Me.btnReports.TabIndex = 28
@@ -364,67 +328,31 @@ Partial Class frmDashboard
         Me.btnSalaryDeduction.FlatAppearance.BorderSize = 0
         Me.btnSalaryDeduction.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalaryDeduction.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalaryDeduction.Location = New System.Drawing.Point(18, 198)
+        Me.btnSalaryDeduction.Location = New System.Drawing.Point(3, 198)
         Me.btnSalaryDeduction.Name = "btnSalaryDeduction"
-        Me.btnSalaryDeduction.Size = New System.Drawing.Size(162, 23)
+        Me.btnSalaryDeduction.Size = New System.Drawing.Size(197, 41)
         Me.btnSalaryDeduction.TabIndex = 27
-        Me.btnSalaryDeduction.Text = "SalaryDeduction"
+        Me.btnSalaryDeduction.Text = "Employee SalaryDeduction Management"
         Me.btnSalaryDeduction.UseVisualStyleBackColor = True
-        '
-        'btnEmployee
-        '
-        Me.btnEmployee.FlatAppearance.BorderSize = 0
-        Me.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEmployee.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEmployee.Location = New System.Drawing.Point(18, 169)
-        Me.btnEmployee.Name = "btnEmployee"
-        Me.btnEmployee.Size = New System.Drawing.Size(162, 23)
-        Me.btnEmployee.TabIndex = 26
-        Me.btnEmployee.Text = "Employee"
-        Me.btnEmployee.UseVisualStyleBackColor = True
         '
         'btnInventory
         '
         Me.btnInventory.FlatAppearance.BorderSize = 0
         Me.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnInventory.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnInventory.Location = New System.Drawing.Point(18, 140)
+        Me.btnInventory.Location = New System.Drawing.Point(18, 169)
         Me.btnInventory.Name = "btnInventory"
         Me.btnInventory.Size = New System.Drawing.Size(162, 23)
         Me.btnInventory.TabIndex = 25
         Me.btnInventory.Text = "Inventory"
         Me.btnInventory.UseVisualStyleBackColor = True
         '
-        'btnCategories
-        '
-        Me.btnCategories.FlatAppearance.BorderSize = 0
-        Me.btnCategories.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCategories.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCategories.Location = New System.Drawing.Point(18, 111)
-        Me.btnCategories.Name = "btnCategories"
-        Me.btnCategories.Size = New System.Drawing.Size(162, 23)
-        Me.btnCategories.TabIndex = 24
-        Me.btnCategories.Text = "Categories"
-        Me.btnCategories.UseVisualStyleBackColor = True
-        '
-        'btnProducts
-        '
-        Me.btnProducts.FlatAppearance.BorderSize = 0
-        Me.btnProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnProducts.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnProducts.Location = New System.Drawing.Point(18, 82)
-        Me.btnProducts.Name = "btnProducts"
-        Me.btnProducts.Size = New System.Drawing.Size(162, 23)
-        Me.btnProducts.TabIndex = 23
-        Me.btnProducts.Text = "Products"
-        Me.btnProducts.UseVisualStyleBackColor = True
-        '
         'btnDashboard
         '
         Me.btnDashboard.FlatAppearance.BorderSize = 0
         Me.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDashboard.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDashboard.Location = New System.Drawing.Point(18, 53)
+        Me.btnDashboard.Location = New System.Drawing.Point(18, 140)
         Me.btnDashboard.Name = "btnDashboard"
         Me.btnDashboard.Size = New System.Drawing.Size(162, 23)
         Me.btnDashboard.TabIndex = 21
@@ -464,16 +392,10 @@ Partial Class frmDashboard
     Friend WithEvents btnSettings As Button
     Friend WithEvents btnReports As Button
     Friend WithEvents btnSalaryDeduction As Button
-    Friend WithEvents btnEmployee As Button
     Friend WithEvents btnInventory As Button
-    Friend WithEvents btnCategories As Button
-    Friend WithEvents btnProducts As Button
     Friend WithEvents btnDashboard As Button
     Friend WithEvents pnlDashboardView As Panel
-    Friend WithEvents pnlProductsView As Panel
-    Friend WithEvents pnlCategoriesView As Panel
     Friend WithEvents pnlInventoryView As Panel
-    Friend WithEvents pnlEmployeeView As Panel
     Friend WithEvents pnlSalaryDeductionView As Panel
     Friend WithEvents pnlReportsView As Panel
     Friend WithEvents pnlSettingsView As Panel
