@@ -101,7 +101,7 @@ Partial Class frmPOS
         Me.pnlHeader.Location = New System.Drawing.Point(0, 0)
         Me.pnlHeader.Margin = New System.Windows.Forms.Padding(4)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1203, 46)
+        Me.pnlHeader.Size = New System.Drawing.Size(1149, 46)
         Me.pnlHeader.TabIndex = 0
         '
         'btnClose
@@ -979,7 +979,7 @@ Partial Class frmPOS
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1203, 738)
+        Me.ClientSize = New System.Drawing.Size(1149, 738)
         Me.Controls.Add(Me.pnlProductsContainer)
         Me.Controls.Add(Me.pnlCartContainer)
         Me.Controls.Add(Me.pnlHeader)

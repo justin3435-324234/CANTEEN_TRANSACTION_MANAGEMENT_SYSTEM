@@ -5,7 +5,9 @@
   "EnableSpellChecker": true,
   "ColumnOrder": [
     "name",
-    "type"
+    "type",
+    "neutral-value",
+    "neutral-comment"
   ],
   "VisibleColumnKeys": [
     "name",

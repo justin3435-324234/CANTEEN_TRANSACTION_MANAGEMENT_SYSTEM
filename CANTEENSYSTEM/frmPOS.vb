@@ -166,7 +166,7 @@ Public Class frmPOS
         flpProducts.SuspendLayout()
         For Each ctrl As Control In flpProducts.Controls
             If TypeOf ctrl Is Button AndAlso ctrl.Name.StartsWith("btnProd") Then
-                Dim btnTag As String = If(ctrl.Tag?.ToString().ToUpper(), "")
+                Dim btnTag As String = If(ctrl.Tag IsNot Nothing, ctrl.Tag.ToString().ToUpper(), "")
                 Dim filterTag As String = categoryTag.ToUpper()
 
                 If filterTag = "ALL" OrElse btnTag = filterTag OrElse (filterTag.StartsWith("DESSERT") AndAlso btnTag.StartsWith("DESSERT")) Then
@@ -428,39 +428,105 @@ Public Class frmPOS
 
         Dim paymentMethod As String = ""
         Dim empID As String = ""
+        Dim empName As String = ""
+        Dim empPosition As String = ""
+        Dim empNo As String = ""
+        Dim sdRemaining As Decimal = 2500
+        Dim empStatus As String = "Available"
+        Dim deductionStatus As String = "PENDING" ' Default to PENDING
+
+        ' Calculate grand total once
+        Dim grandTotal As Decimal = 0
+        Decimal.TryParse(lblGrandTotal.Text.Replace("₱", "").Replace(",", ""), grandTotal)
 
         If rdoSalaryDeduction.Checked Then
             paymentMethod = "Salary Deduction"
 
-            ' Step 1: Hingin ang Employee ID / Teacher Name
-            empID = InputBox("Enter Employee ID / Name:", "Salary Deduction Authentication")
-            If String.IsNullOrWhiteSpace(empID) Then
-                PlaySoftSound("error")
-                MessageBox.Show("Transaction cancelled. Employee ID is required.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
+            ' Step 1: Ask if new employee
+            Dim isNewResult As DialogResult = MessageBox.Show("Are you a new employee for salary deduction?", "New Employee?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If isNewResult = DialogResult.Yes Then
+                ' Show Sign Up Form
+                Dim signupForm As New frmEmployeeSignUp()
+                If signupForm.ShowDialog() = DialogResult.OK Then
+                    empNo = signupForm.EmployeeNumber
+                    empName = signupForm.FullName
+                    empPosition = signupForm.Position
+
+                    ' Validate required fields
+                    If String.IsNullOrWhiteSpace(empNo) OrElse String.IsNullOrWhiteSpace(empName) OrElse String.IsNullOrWhiteSpace(empPosition) Then
+                        PlaySoftSound("error")
+                        MessageBox.Show("All fields are required!", "Incomplete Registration", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    End If
+
+                    ' Set default values for new employee
+                    sdRemaining = 2500
+                    empStatus = "Available"
+                    deductionStatus = "Active"
+
+                    empID = empNo & " - " & empName
+                Else
+                    PlaySoftSound("error")
+                    MessageBox.Show("Registration cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
+                End If
+            Else
+                ' Existing employee - show login form
+                Dim loginForm As New frmEmployeeLogin()
+                If loginForm.ShowDialog() = DialogResult.OK AndAlso loginForm.IsValidLogin Then
+                    empNo = loginForm.EmployeeNumber
+                    empName = loginForm.EmployeeName
+                    empPosition = loginForm.EmployeePosition
+                    sdRemaining = loginForm.EmployeeSDRemaining
+                    empStatus = loginForm.EmployeeStatus
+                    deductionStatus = loginForm.EmployeeDeductionStatus
+                    empID = empNo & " - " & empName
+                Else
+                    PlaySoftSound("error")
+                    MessageBox.Show("Login cancelled or invalid credentials.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
+                End If
             End If
 
-            ' Step 2: Hingin ang 4-Digit Security PIN (Masked with *)
-            Dim empPin As String = InputBoxMasked("Enter 4-Digit Security PIN:", "Security Verification")
+            ' Deduct grand total from SD Remaining for salary deduction
+            sdRemaining = sdRemaining - grandTotal
+            If sdRemaining < 0 Then sdRemaining = 0
 
-            ' Validation: Dapat 4 digits at numeric lang
-            If String.IsNullOrWhiteSpace(empPin) OrElse empPin.Length <> 4 OrElse Not IsNumeric(empPin) Then
-                PlaySoftSound("error")
-                MessageBox.Show("Invalid PIN! Salary deduction requires a valid 4-digit PIN number.", "Authentication Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
+            ' Add new employee to persistent storage (if new employee signup)
+            If isNewResult = DialogResult.Yes AndAlso Not String.IsNullOrWhiteSpace(empNo) Then
+                SalesTracker.AddEmployee(empNo, empName, empPosition, sdRemaining, empStatus, deductionStatus)
+
+                ' Also add to open Dashboard if available
+                For Each f As Form In Application.OpenForms
+                    If TypeOf f Is frmDashboard Then
+                        CType(f, frmDashboard).AddEmployee(empNo, empName, empPosition, sdRemaining, empStatus, deductionStatus)
+                        Exit For
+                    End If
+                Next
+            Else
+                ' Update existing employee's SD Remaining
+                For Each emp As SalesTracker.Employee In SalesTracker.Employees
+                    If emp.EmpNo = empNo Then
+                        emp.SDRemaining = sdRemaining
+                        Exit For
+                    End If
+                Next
+                ' Update Dashboard if open
+                For Each f As Form In Application.OpenForms
+                    If TypeOf f Is frmDashboard Then
+                        CType(f, frmDashboard).LoadEmployees()
+                        Exit For
+                    End If
+                Next
             End If
-
-            ' PLACEHOLDER FOR MY SQL / PHP MYADMIN VERIFICATION:
-            ' Dim isValid As Boolean = VerifyEmployeePinFromDB(empID, empPin)
-            ' If Not isValid Then Exit Sub
         Else
             paymentMethod = "Cash"
+        End If
 
-            Dim grandTotal As Decimal = 0
-            Dim amountPaid As Decimal = 0
-            Decimal.TryParse(lblGrandTotal.Text.Replace("₱", "").Replace(",", ""), grandTotal)
+        Dim amountPaid As Decimal = 0
+        If paymentMethod.ToLower().Contains("cash") Then
             Decimal.TryParse(txtAmountPaid.Text.Trim(), amountPaid)
-
             If amountPaid < grandTotal Then
                 PlaySoftSound("error")
                 MessageBox.Show("Insufficient payment! Amount paid is less than the grand total.", "Insufficient Payment", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -468,7 +534,7 @@ Public Class frmPOS
             End If
         End If
 
-        Dim receiptText As String = GenerateReceipt(paymentMethod, empID)
+        Dim receiptText As String = GenerateReceipt(paymentMethod, empID, empNo, empName, empPosition, sdRemaining, empStatus, deductionStatus, amountPaid)
 
         PlaySoftSound("success")
         MessageBox.Show(receiptText, "CANTEEN OFFICIAL RECEIPT", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -558,39 +624,121 @@ Public Class frmPOS
         End If
     End Function
 
-    ' Redesigned Clean Receipt Function
-    Private Function GenerateReceipt(paymentMethod As String, Optional empInfo As String = "") As String
+    ' Redesigned Clean Receipt Function - Thermal Printer Style
+    Private Function GenerateReceipt(paymentMethod As String, Optional empInfo As String = "", Optional empNo As String = "", Optional empName As String = "", Optional empPosition As String = "", Optional sdRemaining As Decimal = 0, Optional empStatus As String = "", Optional deductionStatus As String = "", Optional amountPaid As Decimal = 0) As String
         Dim sb As New StringBuilder()
-        sb.AppendLine("┌──────────────────────────────────────────┐")
-        sb.AppendLine("│            CANTEEN OFFICIAL RECEIPT      │")
-        sb.AppendLine("├──────────────────────────────────────────┤")
-        sb.AppendLine($"  Date/Time : {DateTime.Now:yyyy-MM-dd hh:mm tt}")
-        sb.AppendLine($"  Payment   : {paymentMethod}")
-        If Not String.IsNullOrEmpty(empInfo) Then
-            sb.AppendLine($"  Charge To : {empInfo}")
+        Dim hasSalaryDeduction As Boolean = paymentMethod.ToLower().Contains("salary") OrElse paymentMethod.ToLower().Contains("deduction")
+        Dim lineWidth As Integer = 40
+
+        Dim singleLine As String = New String("-"c, lineWidth)
+        Dim doubleLine As String = New String("="c, lineWidth)
+
+        ' Generate receipt number
+        Dim receiptNo As String = "#" & DateTime.Now.ToString("yyyy-MMdd-HHmmss")
+
+        ' Header
+        sb.AppendLine(doubleLine)
+        sb.AppendLine(CenterText("CANTEEN OFFICIAL RECEIPT", lineWidth))
+        sb.AppendLine(doubleLine)
+        sb.AppendLine(FormatReceiptLine("DATE/TIME:", DateTime.Now.ToString("yyyy-MM-dd hh:mm tt")))
+        sb.AppendLine(FormatReceiptLine("PAYMENT:", paymentMethod))
+        If Not String.IsNullOrEmpty(empInfo) Then sb.AppendLine(FormatReceiptLine("CHARGE TO:", empInfo))
+
+        If hasSalaryDeduction Then
+            If Not String.IsNullOrEmpty(empNo) Then sb.AppendLine(FormatReceiptLine("EMP NO:", empNo))
+            If Not String.IsNullOrEmpty(empName) Then sb.AppendLine(FormatReceiptLine("NAME:", empName))
+            If Not String.IsNullOrEmpty(empPosition) Then sb.AppendLine(FormatReceiptLine("POSITION:", empPosition))
+            If sdRemaining > 0 Then sb.AppendLine(FormatReceiptLine("SD REMAIN:", "₱ " & sdRemaining.ToString("N2")))
+            If Not String.IsNullOrEmpty(empStatus) Then sb.AppendLine(FormatReceiptLine("STATUS:", empStatus))
+            If Not String.IsNullOrEmpty(deductionStatus) Then sb.AppendLine(FormatReceiptLine("DEDUCT:", deductionStatus))
         End If
-        sb.AppendLine("├──────────────────────────────────────────┤")
-        sb.AppendLine(String.Format("  {0,-16} {1,3} {2,7} {3,8}", "ITEM", "QTY", "PRICE", "TOTAL"))
-        sb.AppendLine("  ────────────────────────────────────────")
+
+        sb.AppendLine(singleLine)
+        sb.AppendLine(FormatReceiptLine("ITEM", "QTY", "PRICE", "TOTAL"))
+        sb.AppendLine(singleLine)
 
         For Each row As DataGridViewRow In dgvCart.Rows
             If row.Cells("colItem").Value IsNot Nothing Then
                 Dim name As String = row.Cells("colItem").Value.ToString()
-                If name.Length > 15 Then name = name.Substring(0, 12) & "..."
                 Dim qty As Integer = Convert.ToInt32(row.Cells("colQty").Value)
                 Dim price As Decimal = Convert.ToDecimal(row.Cells("colPrice").Value)
                 Dim subtotal As Decimal = Convert.ToDecimal(row.Cells("colSubtotal").Value)
 
-                sb.AppendLine(String.Format("  {0,-16} {1,3} ₱{2,6:N2} ₱{3,7:N2}", name, qty, price, subtotal))
+                ' Item name (may wrap)
+                If name.Length > 22 Then
+                    sb.AppendLine(name.Substring(0, 22))
+                    name = name.Substring(22)
+                    While name.Length > 0
+                        If name.Length > 22 Then
+                            sb.AppendLine(" " & name.Substring(0, 22))
+                            name = name.Substring(22)
+                        Else
+                            sb.AppendLine(" " & name)
+                            name = ""
+                        End If
+                    End While
+                End If
+
+                sb.AppendLine(FormatReceiptItem(name, qty, price, subtotal))
             End If
         Next
 
-        sb.AppendLine("  ────────────────────────────────────────")
-        sb.AppendLine($"  TOTAL AMOUNT: {lblGrandTotal.Text.PadLeft(22)}")
-        sb.AppendLine("└──────────────────────────────────────────┘")
-        sb.AppendLine("        Thank you & Enjoy your meal!        ")
+        sb.AppendLine(singleLine)
+        sb.AppendLine(FormatReceiptAmount("TOTAL AMOUNT:", lblGrandTotal.Text))
+
+        ' Cash tendered and change (only for cash payments)
+        If paymentMethod.ToLower().Contains("cash") Then
+            Dim grandTotal As Decimal
+            Decimal.TryParse(lblGrandTotal.Text.Replace("₱", "").Replace(",", ""), grandTotal)
+            Dim change As Decimal = amountPaid - grandTotal
+            If change < 0 Then change = 0
+            sb.AppendLine(FormatReceiptAmount("CASH TENDERED:", "₱ " & amountPaid.ToString("N2")))
+            sb.AppendLine(FormatReceiptAmount("CHANGE:", "₱ " & change.ToString("N2")))
+        End If
+
+        sb.AppendLine(doubleLine)
+        sb.AppendLine("")
+        sb.AppendLine(CenterText("Thank you & Enjoy your meal!", lineWidth))
+        sb.AppendLine(CenterText("Please keep this copy for reference", lineWidth))
+        sb.AppendLine("")
+        sb.AppendLine(doubleLine)
 
         Return sb.ToString()
+    End Function
+
+    Private Function FormatReceiptLine(label As String, value As String) As String
+        Dim lineWidth As Integer = 40
+        Dim labelPart As String = label
+        Dim valuePart As String = value
+        If (labelPart.Length + valuePart.Length) > (lineWidth - 1) Then
+            Return labelPart & " " & valuePart
+        End If
+        Return labelPart.PadRight(lineWidth - valuePart.Length) & valuePart
+    End Function
+
+    Private Function FormatReceiptAmount(label As String, amount As String) As String
+        Dim lineWidth As Integer = 40
+        Dim labelPart As String = label
+        Dim valuePart As String = amount
+        Return labelPart.PadRight(lineWidth - valuePart.Length) & valuePart
+    End Function
+
+    Private Function FormatReceiptLine(label As String, val1 As String, val2 As String, val3 As String) As String
+        Return label.PadRight(18) & val1.PadLeft(4) & val2.PadLeft(8) & val3.PadLeft(10)
+    End Function
+
+    Private Function FormatReceiptItem(name As String, qty As Integer, price As Decimal, subtotal As Decimal) As String
+        Dim namePart As String = name.PadRight(18).Substring(0, Math.Min(18, name.Length))
+        Dim qtyPart As String = qty.ToString().PadLeft(4)
+        Dim pricePart As String = "₱ " & price.ToString("N2").PadLeft(7)
+        Dim totalPart As String = "₱ " & subtotal.ToString("N2").PadLeft(9)
+        Return namePart & qtyPart & pricePart & totalPart
+    End Function
+
+    Private Function CenterText(text As String, width As Integer) As String
+        If text.Length >= width Then Return text
+        Dim pad As Integer = (width - text.Length) \ 2
+        Return New String(" "c, pad) & text
     End Function
 
     Private Sub btnCancelPayment_Click(sender As Object, e As EventArgs) Handles btnCancelPayment.Click

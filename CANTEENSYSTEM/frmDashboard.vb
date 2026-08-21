@@ -33,12 +33,30 @@ Public Class frmDashboard
             StyleNativeDashboardChart()
             RefreshDashboardStats()
 
-            ' 5. Set default active view
+            ' 5. Load saved employees into salary deduction grid
+            LoadEmployees()
+
+            ' 6. Set default active view
             SwitchView(pnlDashboardView, btnDashboard)
 
         Catch ex As Exception
             MessageBox.Show("Dashboard Load Error: " & ex.Message, "Design Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+    End Sub
+
+    Public Sub LoadEmployees()
+        If dgvTextBoxColumn IsNot Nothing Then
+            dgvTextBoxColumn.Rows.Clear()
+            For Each emp As SalesTracker.Employee In SalesTracker.Employees
+                ' Load saved DeductionStatus (PENDING or COMPLETE) - must match ComboBox items exactly
+                Dim savedDeductionStatus As String = If(String.IsNullOrWhiteSpace(emp.DeductionStatus), "PENDING", emp.DeductionStatus.Trim().ToUpper())
+                ' Validate against allowed values
+                If savedDeductionStatus <> "PENDING" AndAlso savedDeductionStatus <> "COMPLETE" Then
+                    savedDeductionStatus = "PENDING"
+                End If
+                dgvTextBoxColumn.Rows.Add(emp.EmpNo, emp.FullName, emp.Position, "₱" & emp.SDRemaining.ToString("N2"), emp.Status, savedDeductionStatus)
+            Next
+        End If
     End Sub
 
     Private Sub frmDashboard_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
@@ -225,5 +243,82 @@ Public Class frmDashboard
 
     Private Sub dgvTextBoxColumn_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTextBoxColumn.CellContentClick
 
+    End Sub
+
+Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTextBoxColumn.CellValueChanged
+        ' Force DeductionStatus to always be PENDING unless explicitly set to COMPLETE
+        ' If changed to COMPLETE, reset SD Remaining to 2500
+        If e.RowIndex >= 0 AndAlso dgvTextBoxColumn.Columns(e.ColumnIndex).Name = "DeductionStatus" Then
+            Dim cellValue As String = ""
+            Try
+                Dim valObj = dgvTextBoxColumn.Rows(e.RowIndex).Cells("DeductionStatus").Value
+                If valObj IsNot Nothing Then cellValue = valObj.ToString()
+            Catch
+                cellValue = ""
+            End Try
+            
+            ' Normalize the value
+            Dim normalizedValue As String = If(String.IsNullOrWhiteSpace(cellValue), "PENDING", cellValue.Trim().ToUpper())
+            
+            If normalizedValue = "COMPLETE" Then
+                ' Reset SD Remaining to 2500
+                dgvTextBoxColumn.Rows(e.RowIndex).Cells("colSDRemaining").Value = "₱2,500.00"
+                
+                ' Update in SalesTracker
+                Dim empNoObj = dgvTextBoxColumn.Rows(e.RowIndex).Cells("colEmpNo").Value
+                Dim empNo As String = If(empNoObj IsNot Nothing, empNoObj.ToString(), "")
+                If Not String.IsNullOrEmpty(empNo) Then
+                    For Each emp As SalesTracker.Employee In SalesTracker.Employees
+                        If emp.EmpNo = empNo Then
+                            emp.SDRemaining = 2500
+                            emp.DeductionStatus = "COMPLETE"
+                            Exit For
+                        End If
+                    Next
+                End If
+            Else
+                ' Revert to PENDING and update SalesTracker
+                Try
+                    dgvTextBoxColumn.Rows(e.RowIndex).Cells("DeductionStatus").Value = "PENDING"
+                Catch
+                End Try
+                
+                Dim empNoObj = dgvTextBoxColumn.Rows(e.RowIndex).Cells("colEmpNo").Value
+                Dim empNo As String = If(empNoObj IsNot Nothing, empNoObj.ToString(), "")
+                If Not String.IsNullOrEmpty(empNo) Then
+                    For Each emp As SalesTracker.Employee In SalesTracker.Employees
+                        If emp.EmpNo = empNo Then
+                            emp.DeductionStatus = "PENDING"
+                            Exit For
+                        End If
+                    Next
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub dgvTextBoxColumn_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvTextBoxColumn.DataError
+        ' Suppress default DataGridView error dialog
+        If e.Context = DataGridViewDataErrorContexts.Commit OrElse
+           e.Context = DataGridViewDataErrorContexts.CurrentCellChange Then
+            e.ThrowException = False
+            e.Cancel = True
+            
+            ' If it's the DeductionStatus column, force to PENDING
+            If e.ColumnIndex >= 0 AndAlso dgvTextBoxColumn.Columns(e.ColumnIndex).Name = "DeductionStatus" Then
+                Try
+                    dgvTextBoxColumn.Rows(e.RowIndex).Cells("DeductionStatus").Value = "PENDING"
+                Catch
+                End Try
+            End If
+        End If
+    End Sub
+
+    ' Add new employee to the salary deduction grid
+    Public Sub AddEmployee(empNo As String, fullName As String, position As String, sdRemaining As Decimal, empStatus As String, deductionStatus As String)
+        If dgvTextBoxColumn IsNot Nothing Then
+            ' Always set DeductionStatus to PENDING
+            dgvTextBoxColumn.Rows.Add(empNo, fullName, position, "₱" & sdRemaining.ToString("N2"), empStatus, "PENDING")
+        End If
     End Sub
 End Class
