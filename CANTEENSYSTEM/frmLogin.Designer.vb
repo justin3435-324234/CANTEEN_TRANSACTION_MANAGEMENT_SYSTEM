@@ -40,6 +40,7 @@ Partial Class frmLogin
         Me.btnAdminTab = New System.Windows.Forms.Button()
         Me.lblForgotPassword = New System.Windows.Forms.LinkLabel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
@@ -53,10 +54,9 @@ Partial Class frmLogin
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Location = New System.Drawing.Point(-5, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Location = New System.Drawing.Point(-4, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(483, 554)
+        Me.Panel1.Size = New System.Drawing.Size(362, 450)
         Me.Panel1.TabIndex = 0
         '
         'Label7
@@ -64,10 +64,9 @@ Partial Class frmLogin
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label7.Location = New System.Drawing.Point(44, 277)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(33, 225)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(395, 92)
+        Me.Label7.Size = New System.Drawing.Size(301, 68)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = """Efficiently manage campus food services, inventory, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and student transactions w" &
     "ith ease. " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "This system tracks daily sales, stock levels, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and prepares operati" &
@@ -79,10 +78,10 @@ Partial Class frmLogin
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Gold
-        Me.Label5.Location = New System.Drawing.Point(211, 184)
+        Me.Label5.Location = New System.Drawing.Point(158, 150)
         Me.Label5.Margin = New System.Windows.Forms.Padding(0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(156, 54)
+        Me.Label5.Size = New System.Drawing.Size(127, 45)
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "&& POS "
         '
@@ -92,10 +91,10 @@ Partial Class frmLogin
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(37, 184)
+        Me.Label4.Location = New System.Drawing.Point(28, 150)
         Me.Label4.Margin = New System.Windows.Forms.Padding(0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(189, 54)
+        Me.Label4.Size = New System.Drawing.Size(150, 45)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Canteen "
         '
@@ -105,10 +104,10 @@ Partial Class frmLogin
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Gold
-        Me.Label6.Location = New System.Drawing.Point(37, 222)
+        Me.Label6.Location = New System.Drawing.Point(28, 180)
         Me.Label6.Margin = New System.Windows.Forms.Padding(0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(355, 54)
+        Me.Label6.Size = New System.Drawing.Size(280, 45)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "Inventory System"
         '
@@ -117,40 +116,36 @@ Partial Class frmLogin
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Times New Roman", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(42, 33)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(32, 27)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(350, 35)
+        Me.Label3.Size = New System.Drawing.Size(278, 26)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "LYCEUM OF ALABANG"
         '
         'Panel2
         '
-        Me.Panel2.Location = New System.Drawing.Point(519, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Location = New System.Drawing.Point(389, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(552, 551)
+        Me.Panel2.Size = New System.Drawing.Size(414, 448)
         Me.Panel2.TabIndex = 1
         '
         'txtPassword
         '
         Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.Location = New System.Drawing.Point(571, 315)
-        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtPassword.Location = New System.Drawing.Point(428, 256)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(370, 27)
+        Me.txtPassword.Size = New System.Drawing.Size(278, 23)
         Me.txtPassword.TabIndex = 1
         '
         'txtUsername
         '
         Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUsername.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsername.Location = New System.Drawing.Point(571, 238)
-        Me.txtUsername.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtUsername.Location = New System.Drawing.Point(428, 193)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(370, 27)
+        Me.txtUsername.Size = New System.Drawing.Size(278, 23)
         Me.txtUsername.TabIndex = 2
         '
         'lblUserHeader
@@ -158,10 +153,9 @@ Partial Class frmLogin
         Me.lblUserHeader.AutoSize = True
         Me.lblUserHeader.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserHeader.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.lblUserHeader.Location = New System.Drawing.Point(567, 215)
-        Me.lblUserHeader.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblUserHeader.Location = New System.Drawing.Point(425, 175)
         Me.lblUserHeader.Name = "lblUserHeader"
-        Me.lblUserHeader.Size = New System.Drawing.Size(188, 20)
+        Me.lblUserHeader.Size = New System.Drawing.Size(147, 15)
         Me.lblUserHeader.TabIndex = 3
         Me.lblUserHeader.Text = "CASHIER ID / USERNAME"
         '
@@ -170,10 +164,9 @@ Partial Class frmLogin
         Me.lblPassHeader.AutoSize = True
         Me.lblPassHeader.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPassHeader.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.lblPassHeader.Location = New System.Drawing.Point(567, 293)
-        Me.lblPassHeader.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblPassHeader.Location = New System.Drawing.Point(425, 238)
         Me.lblPassHeader.Name = "lblPassHeader"
-        Me.lblPassHeader.Size = New System.Drawing.Size(132, 20)
+        Me.lblPassHeader.Size = New System.Drawing.Size(104, 15)
         Me.lblPassHeader.TabIndex = 4
         Me.lblPassHeader.Text = "PIN / PASSWORD"
         '
@@ -186,10 +179,9 @@ Partial Class frmLogin
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnLogin.Location = New System.Drawing.Point(571, 351)
-        Me.btnLogin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnLogin.Location = New System.Drawing.Point(428, 285)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(371, 28)
+        Me.btnLogin.Size = New System.Drawing.Size(278, 23)
         Me.btnLogin.TabIndex = 5
         Me.btnLogin.Text = "LOG IN ➔"
         Me.btnLogin.UseVisualStyleBackColor = False
@@ -199,10 +191,9 @@ Partial Class frmLogin
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(563, 62)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(422, 50)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(377, 41)
+        Me.Label8.Size = New System.Drawing.Size(306, 32)
         Me.Label8.TabIndex = 6
         Me.Label8.Text = "Manage Canteen Services"
         '
@@ -211,10 +202,9 @@ Partial Class frmLogin
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(567, 113)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(425, 92)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(321, 20)
+        Me.Label9.Size = New System.Drawing.Size(253, 15)
         Me.Label9.TabIndex = 7
         Me.Label9.Text = "Select your role and log in to begin operations."
         '
@@ -227,10 +217,9 @@ Partial Class frmLogin
         Me.btnCashierTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCashierTab.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCashierTab.ForeColor = System.Drawing.Color.Black
-        Me.btnCashierTab.Location = New System.Drawing.Point(25, 7)
-        Me.btnCashierTab.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCashierTab.Location = New System.Drawing.Point(19, 6)
         Me.btnCashierTab.Name = "btnCashierTab"
-        Me.btnCashierTab.Size = New System.Drawing.Size(153, 28)
+        Me.btnCashierTab.Size = New System.Drawing.Size(115, 23)
         Me.btnCashierTab.TabIndex = 8
         Me.btnCashierTab.Text = "CASHIER/STAFF"
         Me.btnCashierTab.UseVisualStyleBackColor = False
@@ -244,10 +233,9 @@ Partial Class frmLogin
         Me.btnAdminTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdminTab.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdminTab.ForeColor = System.Drawing.Color.Black
-        Me.btnAdminTab.Location = New System.Drawing.Point(169, 7)
-        Me.btnAdminTab.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnAdminTab.Location = New System.Drawing.Point(127, 6)
         Me.btnAdminTab.Name = "btnAdminTab"
-        Me.btnAdminTab.Size = New System.Drawing.Size(193, 28)
+        Me.btnAdminTab.Size = New System.Drawing.Size(145, 23)
         Me.btnAdminTab.TabIndex = 9
         Me.btnAdminTab.Text = "INVENTORY/ADMIN"
         Me.btnAdminTab.UseVisualStyleBackColor = False
@@ -256,10 +244,9 @@ Partial Class frmLogin
         '
         Me.lblForgotPassword.AutoSize = True
         Me.lblForgotPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblForgotPassword.Location = New System.Drawing.Point(808, 297)
-        Me.lblForgotPassword.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblForgotPassword.Location = New System.Drawing.Point(606, 241)
         Me.lblForgotPassword.Name = "lblForgotPassword"
-        Me.lblForgotPassword.Size = New System.Drawing.Size(125, 20)
+        Me.lblForgotPassword.Size = New System.Drawing.Size(100, 15)
         Me.lblForgotPassword.TabIndex = 10
         Me.lblForgotPassword.TabStop = True
         Me.lblForgotPassword.Text = "Forgot Password?"
@@ -269,19 +256,34 @@ Partial Class frmLogin
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(238, Byte), Integer), CType(CType(178, Byte), Integer))
         Me.Panel3.Controls.Add(Me.btnAdminTab)
         Me.Panel3.Controls.Add(Me.btnCashierTab)
-        Me.Panel3.Location = New System.Drawing.Point(571, 135)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel3.Location = New System.Drawing.Point(428, 110)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Panel3.Size = New System.Drawing.Size(371, 43)
+        Me.Panel3.Padding = New System.Windows.Forms.Padding(3)
+        Me.Panel3.Size = New System.Drawing.Size(278, 35)
         Me.Panel3.TabIndex = 11
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Firebrick
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightCoral
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(761, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(38, 23)
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "X"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'frmLogin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(24, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.lblForgotPassword)
         Me.Controls.Add(Me.Label9)
@@ -293,7 +295,6 @@ Partial Class frmLogin
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -324,7 +325,7 @@ Partial Class frmLogin
     Friend WithEvents btnAdminTab As Button
     Friend WithEvents lblForgotPassword As LinkLabel
     Friend WithEvents Panel3 As Panel
-
+    Friend WithEvents Button1 As Button
 End Class
 
 

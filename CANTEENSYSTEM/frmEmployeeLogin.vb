@@ -41,9 +41,9 @@ Public Class frmEmployeeLogin
         Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(27, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(130, 20)
+        Me.lblTitle.Location = New System.Drawing.Point(100, 19)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(215, 32)
+        Me.lblTitle.Size = New System.Drawing.Size(172, 25)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "EMPLOYEE LOGIN"
         '
@@ -54,7 +54,7 @@ Public Class frmEmployeeLogin
         Me.lblSubtitle.ForeColor = System.Drawing.Color.White
         Me.lblSubtitle.Location = New System.Drawing.Point(80, 55)
         Me.lblSubtitle.Name = "lblSubtitle"
-        Me.lblSubtitle.Size = New System.Drawing.Size(288, 20)
+        Me.lblSubtitle.Size = New System.Drawing.Size(229, 15)
         Me.lblSubtitle.TabIndex = 1
         Me.lblSubtitle.Text = "Enter your credentials for salary deduction"
         '
@@ -65,7 +65,7 @@ Public Class frmEmployeeLogin
         Me.lblEmpNo.ForeColor = System.Drawing.Color.White
         Me.lblEmpNo.Location = New System.Drawing.Point(60, 100)
         Me.lblEmpNo.Name = "lblEmpNo"
-        Me.lblEmpNo.Size = New System.Drawing.Size(308, 23)
+        Me.lblEmpNo.Size = New System.Drawing.Size(257, 19)
         Me.lblEmpNo.TabIndex = 2
         Me.lblEmpNo.Text = "Employee Number (001 or TCH-001):"
         '
@@ -75,7 +75,7 @@ Public Class frmEmployeeLogin
         Me.txtEmpNo.Location = New System.Drawing.Point(60, 125)
         Me.txtEmpNo.MaxLength = 7
         Me.txtEmpNo.Name = "txtEmpNo"
-        Me.txtEmpNo.Size = New System.Drawing.Size(280, 32)
+        Me.txtEmpNo.Size = New System.Drawing.Size(280, 27)
         Me.txtEmpNo.TabIndex = 3
         '
         'lblPin
@@ -85,7 +85,7 @@ Public Class frmEmployeeLogin
         Me.lblPin.ForeColor = System.Drawing.Color.White
         Me.lblPin.Location = New System.Drawing.Point(60, 165)
         Me.lblPin.Name = "lblPin"
-        Me.lblPin.Size = New System.Drawing.Size(106, 23)
+        Me.lblPin.Size = New System.Drawing.Size(87, 19)
         Me.lblPin.TabIndex = 5
         Me.lblPin.Text = "4-Digit PIN:"
         '
@@ -96,7 +96,7 @@ Public Class frmEmployeeLogin
         Me.txtPin.MaxLength = 4
         Me.txtPin.Name = "txtPin"
         Me.txtPin.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPin.Size = New System.Drawing.Size(280, 32)
+        Me.txtPin.Size = New System.Drawing.Size(280, 27)
         Me.txtPin.TabIndex = 6
         '
         'btnLogin
@@ -140,7 +140,7 @@ Public Class frmEmployeeLogin
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.btnCancel)
         Me.ForeColor = System.Drawing.Color.White
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmEmployeeLogin"

@@ -16,7 +16,7 @@ PLEASE MAKE SURE TO ADD DATE EVERY MODIFIED PARA MATRACK KUNG ANO BINAGO AND ENT
 * [ ] Create system flowchart
 * [ ] Create database/ERD
 * [ ] Design UI prototype
-* [ ] Plan forms/pages
+* [X] Plan forms/pages
 * [ ] Plan role permissions
 * [ ] Plan salary deduction process
 
@@ -53,7 +53,14 @@ PLEASE MAKE SURE TO ADD DATE EVERY MODIFIED PARA MATRACK KUNG ANO BINAGO AND ENT
 * [x] `audit_logs`
 * [x] `employees`-Justin 08/20/26
 * [x] `salary_deductions`-Justin 08/20/26
-* [ ] `payroll_periods` *(optional)*
+* [ ] `REPORTS` - CAN BE MANIPULATE - STATUS PENDING,COMPLETE 
+employees table-NOT CONNECTED
+salary_deductions table-NOT CONNECTED
+stock_movements table-NOT CONNECTED 
+transactions table-NOT CONNECTED 
+transaction_details table-NOT CONNECTED 
+users table-NOT CONNECTED
+
 
 ### Sample Data
 
@@ -76,34 +83,51 @@ PLEASE MAKE SURE TO ADD DATE EVERY MODIFIED PARA MATRACK KUNG ANO BINAGO AND ENT
 * [x] Login button
 * [x] Validate username/password
 * [x] Show error for incorrect login
-* [ ] Logout
+* [x] Logout
 
-### User Management
+### Employee Salary Deduction Management 
+* [X] Edit User
+* [X] View User 
+* [X] Delete 
+* [X] Pending btn 
+* [X] Completed btn 
+* [X] DGV
+* [X] Search 
+* [X] Role Finder
+* [X] Panels (total Emp)
+* [X] Panels (Pending Deductions)
+* [X] Panels (Limit Reached)
+* [X] Header 
+SUMMARY 
+-DGV - ADD COLUMN PERIOD STARTS/END 
 
-* [ ] Add user
-* [ ] Edit user
-* [ ] Deactivate user
-* [X] Assign role
-* [ ] Administrator role
-* [X] Cashier role
-* [X] Role-based access
-* [ ] Attempts prompts from logging in 
 
 ---
 
 ## 🟪 E. DASHBOARD
 
-* [X] Dashboard form NO CODE -PENDING 
-* [X] Today's sales- NO CODE-PENDING 
-* [ ] Number of transactions
+* [X] Dashboard form -PENDING 
+* [X] Today's sales- Not connected in database 
+* [X] Number of transactions-
 * [ ] Total products
 * [ ] Low-stock count
 * [ ] Out-of-stock count
-* [ ] Cash sales-PENDING 
-* [ ] Salary deduction sales-PENDING 
-* [ ] Outstanding deductions-PENDING 
-* [ ] Recent transactions
-* [ ] Sales chart *(optional)*-PENDING - NO CODE 
+* [X] Cash sales- DATABASE(INC)
+* [X] Salary deduction sales DATABASE(INC)
+* [X] Sales chart
+* [X] KPI cards — already done
+* [X] Sales chart — already done
+* [] Recent Transactions
+* [] Inventory Alerts
+* [] Top Selling Products
+* [] Clean hover effects
+SUMMARY 
+-EMPLOYEE SALARY DEDUCTION - REFRESH BUTTON 
+-DESIGN 
+-CODE FOR THE SEARCH BAR 
+-FILTER ROLES CODE AND ITEMS 
+-SIDE PANEL (TRANSACTION BTN) 
+
 
 ---
 
@@ -112,16 +136,17 @@ PLEASE MAKE SURE TO ADD DATE EVERY MODIFIED PARA MATRACK KUNG ANO BINAGO AND ENT
 * [X] Product list
 * [ ] Add product
 * [ ] Edit product
-* [ ] Deactivate/delete product
+* [ ] Deactivate/delete product- DEACTIVATED CANNOT BE CLICKED - POS
 * [X] Product name- NO CODE-PENDING
 * [X] Category-NO CODE-PENDING
-* [ ] Price-NO CODE-PENDING
+* [X] Price
 * [ ] Stock quantity NO CODE-PENDING
-* [ ] Reorder level
 * [ ] Product status
 * [ ] Search product
 * [ ] Filter products
 * [ ] Input validation
+SUMMARY 
+-  ADD PRODUCT FROM INVENTORY TO POS WITH PANEL
 
 ---
 
@@ -140,6 +165,9 @@ PLEASE MAKE SURE TO ADD DATE EVERY MODIFIED PARA MATRACK KUNG ANO BINAGO AND ENT
 * [ ] Inventory report
 * [ ] Stock movement history
 * [ ] Search/filter inventory
+SUMMARY 
+- Stock movement history(SIDE PANEL)
+
 
 ### ⭐ Main Test
 
@@ -149,7 +177,7 @@ PLEASE MAKE SURE TO ADD DATE EVERY MODIFIED PARA MATRACK KUNG ANO BINAGO AND ENT
 
 ---
 
-## 🛒 H. POS / TRANSACTION
+## 🛒 H. POS / TRANSACTION- DATABASE-TRANSACTIONS(INC)
 
 ### Cart
 
@@ -166,77 +194,78 @@ PLEASE MAKE SURE TO ADD DATE EVERY MODIFIED PARA MATRACK KUNG ANO BINAGO AND ENT
 
 * [X] Calculate subtotal
 * [X] Calculate total
-* [X] Enter payment-
-* [X] Calculate change
+* [X] Enter payment- CODING 
+* [X] Calculate change-CODING 
 * [X] Generate receipt
 SUMMARY 
 - NEEDS TO BE CONNECTED IN DATA BASE AND DASH BOARD 
 ### Payment
 
 * [X] Cash payment
-* [ ] Salary deduction
-* [ ] Select employee/teacher
+* [X] Salary deduction- greyed out the amount paid 
 * [X] Verify employee/teacher
-* [ ] Check deduction eligibility
-* [ ] Check deduction limit
-* [ ] Salary Deduction 4Pin
+* [X] Check deduction eligibility- limit 2,500 
+* [X] Check deduction limit
+* [X] Salary Deduction 4Pin- NO DATABASE 
+
 SUMMARY 
 -NEEDS TO BE CONNECTED IN DATA BASE AND DASHBOARD, EMPLOYEE MANAGEMENT -PENDING 
+- YUNG SALARY DEDUCTION (SIGN UP)- NO 4 PIN 
+-TCH SHOULD BE REMOVED AND MODIFY TO COMBO BOX 
 
 
 ### Checkout
 PENDING - PENDING NEEDS TO BE CONNECTED IN DB
-* [ ] Save transaction
-* [ ] Save transaction details
-* [ ] Automatically deduct stock
-* [ ] Save salary deduction
-* [ ] Generate/view receipt
-* [ ] Clear cart after checkout
+* [ ] Save transaction-TEMPORARY IN DASH BOARD 
+* [ ] Save transaction details-PENDING
+* [X] Automatically deduct stock IN DATABASE YES , INVENTORY NO 
+* [X] Save salary deduction- TEMPORARILY
+* [X] Generate/view receipt- JUSTIN - 08/23- MODIFY DEIGN
+* [X] Clear cart after checkout JUSTIN - 08/23
 
 ---
 
 ## 👨‍🏫 I. EMPLOYEE / TEACHER MANAGEMENT-
 
-* [ ] Employee/Teacher list
-* [ ] Add employee/teacher
-* [ ] Edit employee/teacher
-* [ ] Deactivate employee/teacher
-* [ ] Employee/Teacher ID
-* [ ] Full name
-* [ ] Department
-* [ ] Position
-* [ ] Employee type
-* [ ] Salary deduction allowed
-* [ ] Deduction limit
-* [ ] Search employee/teacher
+* [X] Employee/Teacher list
+* [X] Add employee/teacher IN POS YES 
+* [ ] Edit employee/teacher- DATABASE ONLY
+* [X] Delete employee/teacher- NO CODE 
+* [X] Employee/Teacher ID
+* [X] Full name
+* [X] Position
+* [X] Employee type
+* [X] Salary deduction allowed
+* [X] Deduction limit
+* [X] Search employee/teacher- NO CODE 
 * [ ] View purchase history
-* [ ] View deduction balance
+* [X] View deduction balance
 SUMMARY 
 - NEED TO INSERT IT IN DASHBOARD TO (ADD,DELETE ETC.) EMPLOYEEMANAGEMENT
 -NEED TO BE CONNECTED WITH (POS, EMPLOYEE MANAGEMENT,SALES,ETC)
-- WHAT IF THEY ARE PAID WITH THE SALARY DEDUCTION?- MATATANGAL BA AUTOMATICALLY OR MANUALLY?
+- BUTTON FOR DEACTIVATE AND REACTIVATE(PENDING WHILE THE ACCOUNT IS STILL USING THE SD)
+- ADD BUTTON IN THE SD FORM (SIGN UP)
+
+DEPARTMENT - STILL UNDECIDED 
 
 ---
 
-## 💰 J. SALARY DEDUCTION - WALA SA SYSTEM PA 
+## 💰 J. SALARY DEDUCTION 
 
-* [ ] Salary deduction form
-* [ ] Display employee/teacher
+* [X] Salary deduction form
+* [X] Display employee/teacher
 * [ ] Display transaction
-* [ ] Display deduction amount
-* [ ] Display deduction date
-* [ ] Payroll period
-* [ ] Deduction status
-* [ ] Search deductions
-* [ ] Filter by employee/teacher
-* [ ] Filter by date
-* [ ] Filter by payroll period
-* [ ] Calculate total deductions
-* [ ] View deduction history
-* [ ] Mark as included in payroll
-* [ ] Mark as deducted
-* [ ] Cancel deduction
-* [ ] Generate deduction report
+* [X] Display deduction amount
+* [X] Display deduction date
+* [X] Deduction status
+* [X] Search deductions
+* [ ] Filter by Roles
+* [ ] Filter by date- combo box 
+* [ ] Calculate total deductions- per day? or per week?
+* [x] View deduction history
+* [X] Mark as deducted
+* [ ] Cancel deduction -TRANSACTION 
+* [] Generate deduction report - export pdf/excel
 
 ---
 
@@ -259,7 +288,7 @@ SUMMARY
 
 ## 📊 L. REPORTS - WALA PA CODE PERO NASA DASHBOARD NA 
 
-### Sales Reports
+### Sales Reports TAB 
 
 * [ ] Daily sales
 * [ ] Weekly sales
@@ -269,29 +298,18 @@ SUMMARY
 * [ ] Cash sales
 * [ ] Salary deduction sales
 
-### Inventory Reports- DASHBOARD
-
 * [ ] Current inventory
 * [ ] Low-stock products
 * [ ] Out-of-stock products
 * [ ] Stock movements
 * [ ] Stock-in history
 
-### Salary Deduction Reports- NONE PA SA SYSTEM(NASA LOOB DAPAT NG REPORTS MAY BUTTON)
 
-* [ ] Employee/Teacher deductions
-* [ ] Daily deductions
-* [ ] Weekly deductions
-* [ ] Monthly deductions
-* [ ] Outstanding deductions
-* [ ] Deducted amounts
-* [ ] Payroll-period report
-* [ ] Total salary deductions
 
 ### Optional
 
 * [ ] Best-selling products- NEEDS TO BE CONNECTED IN frmPOS 
-* [ ] Sales graph- NEEDS TO BE CONNECTED IN frmPOS
+* [X] Sales graph- NEEDS TO BE CONNECTED IN frmPOS
 * [ ] Export report- NEEDS TO BE CONNECTED IN frmPOS
 * [ ] Print report- NEEDS TO BE CONNECTED IN frmPOS, Dashboard,
 SUMMARY 
@@ -299,13 +317,12 @@ SUMMARY
 
 ---
 
-## ⚙️ M. SETTINGS & SECURITY- IN DASH BOARDS WALA PA BUTTONS
+## ⚙️ M. SETTINGS & SECURITY- IN DASH BOARDS WALA PA BUTTONS - UNDECIDED 
 
 * [ ] User profile
 * [ ] Change password
 * [ ] System information
 * [ ] Role-based access
-* [ ] Audit log
 * [ ] Database backup
 * [ ] Input validation
 * [ ] Error handling
@@ -418,6 +435,10 @@ SUMMARY
 * [ ] Conclusion
 * [ ] Recommendations
 * [ ] Salary Deduction Process Documentation
+SUMMARY - FOR TXT FILE 
+[X] SURVEY QUESTIONS 
+[X] LETTER 
+[X]TEMPLATE
 
 ---
 
@@ -431,10 +452,10 @@ SUMMARY
 * [X] Dashboard- (KULANG PA NG EMPLOYEE SALARY DEDUCTION MANAGEMENT)
 * [ ] Products
 * [ ] Inventory
-* [ ] POS
-* [ ] Cart
-* [ ] Payment
-* [ ] Automatic stock deduction
+* [X] POS
+* [X] Cart
+* [X] Payment
+* [X] Automatic stock deduction
 * [ ] Transaction history
 * [ ] Employee/Teacher Management
 * [ ] Salary Deduction
@@ -464,57 +485,15 @@ SUMMARY
 
 **Login → Dashboard → Products → Inventory → POS → Payment → Salary Deduction → Automatic Stock Deduction → Transaction History → Reports**
 
-1. How often do you purchase food or other items from the Lyceum of Alabang canteen?
-	•	☐ Daily
-	•	☐ Several times a week
-	•	☐ Once a week
-	•	☐ Rarely
-2. What payment method do you usually use when purchasing from the canteen?
-	•	☐ Cash
-	•	☐ Salary Deduction (SD)
-	•	☐ Both Cash and SD
-3. How often do you use Salary Deduction (SD) when purchasing from the canteen?
-	•	☐ Daily
-	•	☐ Several times a week
-	•	☐ Once a week
-	•	☐ Rarely
-	•	☐ Never
-4. How easy or difficult is it to keep track of your current Salary Deduction (SD) purchases?
-	•	☐ Very Easy
-	•	☐ Easy
-	•	☐ Neutral
-	•	☐ Difficult
-	•	☐ Very Difficult
-5. Have you ever experienced problems with your SD transactions, such as incorrect amounts, missing records, or difficulty checking your purchases?
-	•	☐ Yes
-	•	☐ No
-	•	☐ Sometimes
-6. How satisfied are you with the current process of recording and managing canteen transactions?
-	•	☐ Very Satisfied
-	•	☐ Satisfied
-	•	☐ Neutral
-	•	☐ Dissatisfied
-	•	☐ Very Dissatisfied
-7. How often do you experience long queues or delays when purchasing from the canteen?
-	•	☐ Always
-	•	☐ Often
-	•	☐ Sometimes
-	•	☐ Rarely
-	•	☐ Never
-8. How useful would it be to have a system where you can view your SD transaction history and total amount before the salary cutoff?
-	•	☐ Very Useful
-	•	☐ Useful
-	•	☐ Neutral
-	•	☐ Not Very Useful
-	•	☐ Not Useful at All
-9. Do you think a computerized canteen transaction system would make your purchases more convenient and organized?
-	•	☐ Strongly Agree
-	•	☐ Agree
-	•	☐ Neutral
-	•	☐ Disagree
-	•	☐ Strongly Disagree
- 
-10. Would you be willing to use the proposed Lyceum of Alabang Canteen Transaction Management System if it could make transactions faster and help you monitor your Salary Deduction?
-	•	☐ Yes
-	•	☐ Maybe
-	•	☐ No
+
+MODIFIED 
+[x] DROP - CATEGORIES -IN DASHBOARD 
+[x]DROP- PRODUCT- DASHBOARD 
+[]ADD INS- DASHBOARD- TRANSACTION HISTORY
+[x] MERGE- EMPLOYEE - SALARY DEDUCTION- DASHBOARD - UI -btnSalaryDeduction
+
+
+ADD INS- 
+CALCULATOR 
+
+		

@@ -321,4 +321,8 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
             dgvTextBoxColumn.Rows.Add(empNo, fullName, position, "₱" & sdRemaining.ToString("N2"), empStatus, "PENDING")
         End If
     End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRecentTransactions.CellContentClick
+
+    End Sub
 End Class
