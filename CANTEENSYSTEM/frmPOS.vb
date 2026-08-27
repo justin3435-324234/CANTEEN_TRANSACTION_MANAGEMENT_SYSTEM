@@ -23,6 +23,13 @@ Public Class frmPOS
 
         SetActiveCategoryButton(btnCatAll)
         ApplyButtonHoverEffects()
+
+        ' Initialize payment method state
+        If rdoSalaryDeduction.Checked Then
+            txtAmountPaid.Enabled = False
+        Else
+            txtAmountPaid.Enabled = True
+        End If
     End Sub
 
     Private Sub ConfigureProductButtons()
@@ -417,6 +424,25 @@ Public Class frmPOS
 
 #End Region
 
+#Region "Payment Method Selection"
+
+    Private Sub rdoSalaryDeduction_CheckedChanged(sender As Object, e As EventArgs) Handles rdoSalaryDeduction.CheckedChanged
+        If rdoSalaryDeduction.Checked Then
+            txtAmountPaid.Enabled = False
+            txtAmountPaid.Text = ""
+            ComputeChange()
+        End If
+    End Sub
+
+    Private Sub rdoCash_CheckedChanged(sender As Object, e As EventArgs) Handles rdoCash.CheckedChanged
+        If rdoCash.Checked Then
+            txtAmountPaid.Enabled = True
+            txtAmountPaid.Focus()
+        End If
+    End Sub
+
+#End Region
+
 #Region "Payment & Secured Salary Deduction Logic"
 
     Private Sub btnOpenPayment_Click(sender As Object, e As EventArgs) Handles btnOpenPayment.Click
@@ -434,6 +460,7 @@ Public Class frmPOS
         Dim sdRemaining As Decimal = 2500
         Dim empStatus As String = "Available"
         Dim deductionStatus As String = "PENDING" ' Default to PENDING
+        Dim signupUsername As String = ""
 
         ' Calculate grand total once
         Dim grandTotal As Decimal = 0
@@ -450,15 +477,13 @@ Public Class frmPOS
                 Dim signupForm As New frmEmployeeSignUp()
                 If signupForm.ShowDialog() = DialogResult.OK Then
                     empNo = signupForm.EmployeeNumber
+                    signupUsername = signupForm.Username
                     empName = signupForm.FullName
                     empPosition = signupForm.Position
-
-                    ' Validate required fields
-                    If String.IsNullOrWhiteSpace(empNo) OrElse String.IsNullOrWhiteSpace(empName) OrElse String.IsNullOrWhiteSpace(empPosition) Then
-                        PlaySoftSound("error")
-                        MessageBox.Show("All fields are required!", "Incomplete Registration", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        Exit Sub
-                    End If
+                    Try
+                        System.IO.File.AppendAllText("C:\Users\Justin\Desktop\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\debug_signup.log", $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} POS after dialog empNo='{empNo}' signupUsername='{signupUsername}' UsernameProp='{signupForm.Username}' EmpNoProp='{signupForm.EmployeeNumber}'" & vbCrLf)
+                    Catch
+                    End Try
 
                     ' Set default values for new employee
                     sdRemaining = 2500
@@ -495,12 +520,17 @@ Public Class frmPOS
 
             ' Add new employee to persistent storage (if new employee signup)
             If isNewResult = DialogResult.Yes AndAlso Not String.IsNullOrWhiteSpace(empNo) Then
-                SalesTracker.AddEmployee(empNo, empName, empPosition, sdRemaining, empStatus, deductionStatus)
+                Try
+                    System.IO.File.AppendAllText("C:\Users\Justin\Desktop\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\debug_signup.log", $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} POS before AddEmployee empNo='{empNo}' signupUsername='{signupUsername}' empName='{empName}'" & vbCrLf)
+                Catch
+                End Try
+                If String.IsNullOrWhiteSpace(signupUsername) Then signupUsername = empNo
+                SalesTracker.AddEmployee(empNo, signupUsername, empName, empPosition, sdRemaining, empStatus, deductionStatus)
 
                 ' Also add to open Dashboard if available
                 For Each f As Form In Application.OpenForms
                     If TypeOf f Is frmDashboard Then
-                        CType(f, frmDashboard).AddEmployee(empNo, empName, empPosition, sdRemaining, empStatus, deductionStatus)
+                        CType(f, frmDashboard).AddEmployee(empNo, signupUsername, empName, empPosition, sdRemaining, empStatus, deductionStatus)
                         Exit For
                     End If
                 Next
@@ -512,6 +542,7 @@ Public Class frmPOS
                         Exit For
                     End If
                 Next
+                SalesTracker.UpdateSDRemaining(empNo, sdRemaining)
                 ' Update Dashboard if open
                 For Each f As Form In Application.OpenForms
                     If TypeOf f Is frmDashboard Then

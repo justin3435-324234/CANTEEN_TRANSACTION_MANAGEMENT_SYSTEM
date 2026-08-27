@@ -33,10 +33,13 @@ Public Class frmDashboard
             StyleNativeDashboardChart()
             RefreshDashboardStats()
 
-            ' 5. Load saved employees into salary deduction grid
+            ' 5. Load saved employees from database
+            SalesTracker.LoadEmployeesFromDatabase()
+
+            ' 6. Load employees into salary deduction grid
             LoadEmployees()
 
-            ' 6. Set default active view
+            ' 7. Set default active view
             SwitchView(pnlDashboardView, btnDashboard)
 
         Catch ex As Exception
@@ -54,8 +57,11 @@ Public Class frmDashboard
                 If savedDeductionStatus <> "PENDING" AndAlso savedDeductionStatus <> "COMPLETE" Then
                     savedDeductionStatus = "PENDING"
                 End If
-                dgvTextBoxColumn.Rows.Add(emp.EmpNo, emp.FullName, emp.Position, "₱" & emp.SDRemaining.ToString("N2"), emp.Status, savedDeductionStatus)
+                Dim pStart As String = If(String.IsNullOrWhiteSpace(emp.PeriodStart), "", emp.PeriodStart)
+                Dim pEnd As String = If(String.IsNullOrWhiteSpace(emp.PeriodEnd), "", emp.PeriodEnd)
+                dgvTextBoxColumn.Rows.Add(emp.EmpNo, emp.FullName, emp.Position, "₱" & emp.SDRemaining.ToString("N2"), emp.Status, savedDeductionStatus, pStart, pEnd)
             Next
+            ApplySalaryFilter()
         End If
     End Sub
 
@@ -264,6 +270,9 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
                 ' Reset SD Remaining to 2500
                 dgvTextBoxColumn.Rows(e.RowIndex).Cells("colSDRemaining").Value = "₱2,500.00"
                 
+                ' Set period end date to current date when SD resets
+                dgvTextBoxColumn.Rows(e.RowIndex).Cells("colPeriodEnd").Value = DateTime.Now.ToString("yyyy-MM-dd")
+                
                 ' Update in SalesTracker
                 Dim empNoObj = dgvTextBoxColumn.Rows(e.RowIndex).Cells("colEmpNo").Value
                 Dim empNo As String = If(empNoObj IsNot Nothing, empNoObj.ToString(), "")
@@ -314,13 +323,199 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
         End If
     End Sub
 
-    ' Add new employee to the salary deduction grid
-    Public Sub AddEmployee(empNo As String, fullName As String, position As String, sdRemaining As Decimal, empStatus As String, deductionStatus As String)
+' Add new employee to the salary deduction grid
+    Public Sub AddEmployee(empNo As String, username As String, fullName As String, position As String, sdRemaining As Decimal, empStatus As String, deductionStatus As String)
         If dgvTextBoxColumn IsNot Nothing Then
             ' Always set DeductionStatus to PENDING
-            dgvTextBoxColumn.Rows.Add(empNo, fullName, position, "₱" & sdRemaining.ToString("N2"), empStatus, "PENDING")
+            ' Set period_start to today's date when employee is first added (also auto for created_at in DB)
+            Dim periodStart As String = DateTime.Now.ToString("yyyy-MM-dd")
+            ' Add values for all 8 columns including Period Start and Period End
+            dgvTextBoxColumn.Rows.Add(empNo, fullName, position, "₱" & sdRemaining.ToString("N2"), empStatus, "PENDING", periodStart, "")
+            ApplySalaryFilter()
         End If
     End Sub
+
+#Region "Salary Deduction View - Search & Filter"
+
+    Private Const SALARY_SEARCH_PLACEHOLDER As String = "🔍 Search employee name or ID..."
+
+    Private Sub txtSearch_GotFocus(sender As Object, e As EventArgs) Handles txtSearch.GotFocus
+        If txtSearch.Text = SALARY_SEARCH_PLACEHOLDER Then
+            txtSearch.Text = ""
+            txtSearch.ForeColor = Color.White
+        End If
+    End Sub
+
+    Private Sub txtSearch_LostFocus(sender As Object, e As EventArgs) Handles txtSearch.LostFocus
+        If String.IsNullOrWhiteSpace(txtSearch.Text) Then
+            txtSearch.Text = SALARY_SEARCH_PLACEHOLDER
+            txtSearch.ForeColor = Color.Gray
+        End If
+    End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        ApplySalaryFilter()
+    End Sub
+
+    Private Sub cmbRoleFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbRoleFilter.SelectedIndexChanged
+        ApplySalaryFilter()
+    End Sub
+
+    Private Sub ApplySalaryFilter()
+        If dgvTextBoxColumn Is Nothing Then Exit Sub
+
+        Dim searchText As String = txtSearch.Text.Trim().ToLower()
+        If searchText = SALARY_SEARCH_PLACEHOLDER.ToLower() Then searchText = ""
+
+        Dim roleFilter As String = ""
+        If cmbRoleFilter.SelectedItem IsNot Nothing Then
+            roleFilter = cmbRoleFilter.SelectedItem.ToString().Trim()
+        ElseIf Not String.IsNullOrWhiteSpace(cmbRoleFilter.Text) Then
+            roleFilter = cmbRoleFilter.Text.Trim()
+        End If
+        If roleFilter = "All Roles" Then roleFilter = ""
+
+        For Each row As DataGridViewRow In dgvTextBoxColumn.Rows
+            If row.IsNewRow Then Continue For
+            Dim empNo As String = If(row.Cells("colEmpNo").Value IsNot Nothing, row.Cells("colEmpNo").Value.ToString().ToLower(), "")
+            Dim nameVal As String = If(row.Cells("colName").Value IsNot Nothing, row.Cells("colName").Value.ToString().ToLower(), "")
+            Dim posVal As String = If(row.Cells("colPosition").Value IsNot Nothing, row.Cells("colPosition").Value.ToString(), "")
+
+            Dim matchesSearch As Boolean = String.IsNullOrEmpty(searchText) OrElse empNo.Contains(searchText) OrElse nameVal.Contains(searchText)
+            Dim matchesRole As Boolean = String.IsNullOrEmpty(roleFilter) OrElse posVal.Equals(roleFilter, StringComparison.OrdinalIgnoreCase)
+
+            Dim isVisible As Boolean = matchesSearch AndAlso matchesRole
+            Try
+                row.Visible = isVisible
+            Catch
+                ' CurrencyManager may throw if all rows hidden - ignore
+            End Try
+        Next
+    End Sub
+
+    Private Function GetSelectedSalaryRow() As DataGridViewRow
+        If dgvTextBoxColumn Is Nothing Then Return Nothing
+        If dgvTextBoxColumn.SelectedRows.Count > 0 Then Return dgvTextBoxColumn.SelectedRows(0)
+        If dgvTextBoxColumn.CurrentRow IsNot Nothing AndAlso Not dgvTextBoxColumn.CurrentRow.IsNewRow Then Return dgvTextBoxColumn.CurrentRow
+        Return Nothing
+    End Function
+
+#End Region
+
+#Region "Salary Deduction View - Button Actions"
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        ' btnEdit is the ADD button in pnlSalaryDeductionView - just show signup
+        Dim signup As New frmEmployeeSignUp()
+        If signup.ShowDialog() = DialogResult.OK Then
+            Dim empNo As String = signup.EmployeeNumber
+            Dim username As String = signup.Username
+            Dim fullName As String = signup.FullName
+            Dim pos As String = signup.Position
+            Dim empStatus As String = "Available"
+            Dim dedStatus As String = "PENDING"
+            Dim sdRem As Decimal = 2500
+            Try
+                System.IO.File.AppendAllText("C:\Users\Justin\Desktop\CANTEEN_TRANSACTION_MANAGEMENT_SYSTEM\debug_signup.log", $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} DASHBOARD btnAdd empNo='{empNo}' username='{username}' fullName='{fullName}'" & vbCrLf)
+            Catch
+            End Try
+
+            SalesTracker.AddEmployee(empNo, username, fullName, pos, sdRem, empStatus, dedStatus)
+            LoadEmployees()
+            ApplySalaryFilter()
+            MessageBox.Show($"Employee {empNo} - {fullName} added successfully!" & vbCrLf & $"Username: {username}", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub btnEdit1_Click(sender As Object, e As EventArgs) Handles btnEdit1.Click
+        Dim row As DataGridViewRow = GetSelectedSalaryRow()
+        If row Is Nothing Then
+            MessageBox.Show("Please select an employee to edit.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+        Dim empNo As String = If(row.Cells("colEmpNo").Value IsNot Nothing, row.Cells("colEmpNo").Value.ToString(), "")
+        Dim curName As String = If(row.Cells("colName").Value IsNot Nothing, row.Cells("colName").Value.ToString(), "")
+        Dim curPos As String = If(row.Cells("colPosition").Value IsNot Nothing, row.Cells("colPosition").Value.ToString(), "")
+
+        Dim newName As String = InputBox($"Edit Full Name for {empNo}:", "Edit Employee", curName)
+        If String.IsNullOrWhiteSpace(newName) Then Exit Sub
+        newName = newName.Trim()
+
+        Dim newPos As String = InputBox($"Edit Position for {empNo}:" & vbCrLf & "Options: Teacher, Staff, Admin, Security, etc.", "Edit Position", curPos)
+        If String.IsNullOrWhiteSpace(newPos) Then newPos = curPos
+        newPos = newPos.Trim()
+
+        ' Update grid
+        row.Cells("colName").Value = newName
+        row.Cells("colPosition").Value = newPos
+
+        ' Update SalesTracker and DB
+        SalesTracker.UpdateEmployee(empNo, newName, newPos)
+        ApplySalaryFilter()
+        MessageBox.Show("Employee updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
+        Dim row As DataGridViewRow = GetSelectedSalaryRow()
+        If row Is Nothing Then
+            MessageBox.Show("Please select an employee to view.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+        Dim empNo As String = If(row.Cells("colEmpNo").Value IsNot Nothing, row.Cells("colEmpNo").Value.ToString(), "")
+        Dim nameVal As String = If(row.Cells("colName").Value IsNot Nothing, row.Cells("colName").Value.ToString(), "")
+        Dim posVal As String = If(row.Cells("colPosition").Value IsNot Nothing, row.Cells("colPosition").Value.ToString(), "")
+        Dim sdRem As String = If(row.Cells("colSDRemaining").Value IsNot Nothing, row.Cells("colSDRemaining").Value.ToString(), "")
+        Dim statusVal As String = If(row.Cells("colStatus").Value IsNot Nothing, row.Cells("colStatus").Value.ToString(), "")
+        Dim dedStatus As String = If(row.Cells("DeductionStatus").Value IsNot Nothing, row.Cells("DeductionStatus").Value.ToString(), "")
+        Dim pStart As String = If(row.Cells("colPeriodStart").Value IsNot Nothing, row.Cells("colPeriodStart").Value.ToString(), "")
+        Dim pEnd As String = If(row.Cells("colPeriodEnd").Value IsNot Nothing, row.Cells("colPeriodEnd").Value.ToString(), "")
+
+        ' Try to get username and created_at from SalesTracker
+        Dim usernameVal As String = ""
+        Dim createdAtVal As String = ""
+        For Each emp As SalesTracker.Employee In SalesTracker.Employees
+            If emp.EmpNo = empNo Then
+                usernameVal = emp.Username
+                If emp.CreatedAt <> DateTime.MinValue Then createdAtVal = emp.CreatedAt.ToString("yyyy-MM-dd HH:mm")
+                Exit For
+            End If
+        Next
+
+        Dim details As String = $"Employee No: {empNo}" & vbCrLf &
+                                $"Username: {usernameVal}" & vbCrLf &
+                                $"Full Name: {nameVal}" & vbCrLf &
+                                $"Position: {posVal}" & vbCrLf &
+                                $"SD Remaining: {sdRem}" & vbCrLf &
+                                $"Status: {statusVal}" & vbCrLf &
+                                $"Deduction Status: {dedStatus}" & vbCrLf &
+                                $"Period Start: {pStart}" & vbCrLf &
+                                $"Period End: {pEnd}" & vbCrLf &
+                                $"Created At: {createdAtVal}"
+        MessageBox.Show(details, "Employee Details - " & empNo, MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim row As DataGridViewRow = GetSelectedSalaryRow()
+        If row Is Nothing Then
+            MessageBox.Show("Please select an employee to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+        Dim empNo As String = If(row.Cells("colEmpNo").Value IsNot Nothing, row.Cells("colEmpNo").Value.ToString(), "")
+        Dim nameVal As String = If(row.Cells("colName").Value IsNot Nothing, row.Cells("colName").Value.ToString(), "")
+        Dim confirm = MessageBox.Show($"Are you sure you want to delete employee {empNo} - {nameVal}?" & vbCrLf & "This cannot be undone.", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If confirm <> DialogResult.Yes Then Exit Sub
+
+        SalesTracker.DeleteEmployee(empNo)
+        Try
+            dgvTextBoxColumn.Rows.Remove(row)
+        Catch
+            LoadEmployees()
+        End Try
+        ApplySalaryFilter()
+        MessageBox.Show("Employee deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+#End Region
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRecentTransactions.CellContentClick
 

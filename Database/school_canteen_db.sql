@@ -67,6 +67,7 @@ INSERT INTO `categories` (`category_id`, `category_name`, `status`, `created_at`
 
 CREATE TABLE `employees` (
   `employee_number` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `position` varchar(50) NOT NULL,
   `employee_type` enum('Teacher','Employee') NOT NULL,
@@ -74,7 +75,6 @@ CREATE TABLE `employees` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `pin` varchar(4) NOT NULL DEFAULT '1234',
   `sd_limit` decimal(10,2) NOT NULL DEFAULT 2500.00,
-  `sd_used` decimal(10,2) NOT NULL DEFAULT 0.00,
   `sd_remaining` decimal(10,2) NOT NULL DEFAULT 2500.00,
   `sd_status` varchar(20) NOT NULL DEFAULT 'Available',
   `deduction_status` varchar(20) NOT NULL DEFAULT 'Pending',
@@ -86,8 +86,8 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`employee_number`, `full_name`, `position`, `employee_type`, `status`, `created_at`, `pin`, `sd_limit`, `sd_used`, `sd_remaining`, `sd_status`, `deduction_status`, `period_start`, `period_end`) VALUES
-('TCH-001', 'Maria Santos', 'Teacher', 'Teacher', 'Active', '2026-08-19 15:18:14', '1234', 2500.00, 0.00, 2500.00, 'Available', 'Pending', NULL, NULL);
+INSERT INTO `employees` (`employee_number`, `username`, `full_name`, `position`, `employee_type`, `status`, `created_at`, `pin`, `sd_limit`, `sd_remaining`, `sd_status`, `deduction_status`, `period_start`, `period_end`) VALUES
+('EMP-001', 'john.doe', 'John Doe', 'Staff', 'Employee', 'Active', '2026-08-27 17:00:00', '1234', 2500.00, 2500.00, 'Available', 'Pending', NULL, NULL);
 
 -- --------------------------------------------------------
 
