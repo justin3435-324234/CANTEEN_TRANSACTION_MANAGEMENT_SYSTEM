@@ -22,106 +22,114 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.flowLayoutPanelActions = New System.Windows.Forms.FlowLayoutPanel()
-        Me.btnEdit1 = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnView = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.flowLayoutPanelActions.SuspendLayout()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.dgvInventoryHistory = New System.Windows.Forms.DataGridView()
+        Me.movement_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colProduct = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colMovementType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colUser = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colRemarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.dgvInventoryHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'flowLayoutPanelActions
+        'dgvInventoryHistory
         '
-        Me.flowLayoutPanelActions.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.flowLayoutPanelActions.Controls.Add(Me.btnEdit1)
-        Me.flowLayoutPanelActions.Controls.Add(Me.btnAdd)
-        Me.flowLayoutPanelActions.Controls.Add(Me.btnView)
-        Me.flowLayoutPanelActions.Controls.Add(Me.btnDelete)
-        Me.flowLayoutPanelActions.Location = New System.Drawing.Point(220, 210)
-        Me.flowLayoutPanelActions.Name = "flowLayoutPanelActions"
-        Me.flowLayoutPanelActions.Size = New System.Drawing.Size(361, 31)
-        Me.flowLayoutPanelActions.TabIndex = 2
+        Me.dgvInventoryHistory.AllowUserToAddRows = False
+        Me.dgvInventoryHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvInventoryHistory.BackgroundColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(104, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvInventoryHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvInventoryHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvInventoryHistory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.movement_id, Me.colDate, Me.colProduct, Me.colMovementType, Me.colQuantity, Me.colUser, Me.colRemarks})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(61, Byte), Integer))
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvInventoryHistory.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvInventoryHistory.GridColor = System.Drawing.Color.Gray
+        Me.dgvInventoryHistory.Location = New System.Drawing.Point(493, 70)
+        Me.dgvInventoryHistory.MultiSelect = False
+        Me.dgvInventoryHistory.Name = "dgvInventoryHistory"
+        Me.dgvInventoryHistory.ReadOnly = True
+        Me.dgvInventoryHistory.RowHeadersVisible = False
+        Me.dgvInventoryHistory.RowHeadersWidth = 51
+        Me.dgvInventoryHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvInventoryHistory.Size = New System.Drawing.Size(194, 310)
+        Me.dgvInventoryHistory.TabIndex = 14
         '
-        'btnEdit1
+        'movement_id
         '
-        Me.btnEdit1.BackColor = System.Drawing.Color.SeaGreen
-        Me.btnEdit1.FlatAppearance.BorderSize = 0
-        Me.btnEdit1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(58, Byte), Integer))
-        Me.btnEdit1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen
-        Me.btnEdit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEdit1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnEdit1.Location = New System.Drawing.Point(3, 3)
-        Me.btnEdit1.Name = "btnEdit1"
-        Me.btnEdit1.Size = New System.Drawing.Size(81, 25)
-        Me.btnEdit1.TabIndex = 3
-        Me.btnEdit1.Text = "EDIT"
-        Me.btnEdit1.UseVisualStyleBackColor = False
+        Me.movement_id.HeaderText = "Movement ID"
+        Me.movement_id.Name = "movement_id"
+        Me.movement_id.ReadOnly = True
         '
-        'btnAdd
+        'colDate
         '
-        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.btnAdd.FlatAppearance.BorderSize = 0
-        Me.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.ForeColor = System.Drawing.Color.White
-        Me.btnAdd.Location = New System.Drawing.Point(90, 3)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(81, 25)
-        Me.btnAdd.TabIndex = 1
-        Me.btnAdd.Text = "ADD"
-        Me.btnAdd.UseVisualStyleBackColor = False
+        Me.colDate.HeaderText = "Date"
+        Me.colDate.Name = "colDate"
+        Me.colDate.ReadOnly = True
         '
-        'btnView
+        'colProduct
         '
-        Me.btnView.BackColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.btnView.FlatAppearance.BorderSize = 0
-        Me.btnView.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.btnView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(155, Byte), Integer), CType(CType(229, Byte), Integer))
-        Me.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnView.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnView.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnView.Location = New System.Drawing.Point(177, 3)
-        Me.btnView.Name = "btnView"
-        Me.btnView.Size = New System.Drawing.Size(81, 25)
-        Me.btnView.TabIndex = 2
-        Me.btnView.Text = "VIEW"
-        Me.btnView.UseVisualStyleBackColor = False
+        Me.colProduct.HeaderText = "Product"
+        Me.colProduct.Name = "colProduct"
+        Me.colProduct.ReadOnly = True
         '
-        'btnDelete
+        'colMovementType
         '
-        Me.btnDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(83, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.btnDelete.FlatAppearance.BorderSize = 0
-        Me.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(44, Byte), Integer))
-        Me.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(115, Byte), Integer))
-        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelete.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnDelete.Location = New System.Drawing.Point(264, 3)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(81, 25)
-        Me.btnDelete.TabIndex = 4
-        Me.btnDelete.Text = "DELETE"
-        Me.btnDelete.UseVisualStyleBackColor = False
+        Me.colMovementType.HeaderText = "Movement Type"
+        Me.colMovementType.Name = "colMovementType"
+        Me.colMovementType.ReadOnly = True
+        '
+        'colQuantity
+        '
+        Me.colQuantity.HeaderText = "Quantity"
+        Me.colQuantity.Name = "colQuantity"
+        Me.colQuantity.ReadOnly = True
+        '
+        'colUser
+        '
+        Me.colUser.HeaderText = "User"
+        Me.colUser.Name = "colUser"
+        Me.colUser.ReadOnly = True
+        '
+        'colRemarks
+        '
+        Me.colRemarks.HeaderText = "Remarks"
+        Me.colRemarks.Name = "colRemarks"
+        Me.colRemarks.ReadOnly = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.flowLayoutPanelActions)
+        Me.Controls.Add(Me.dgvInventoryHistory)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        Me.flowLayoutPanelActions.ResumeLayout(False)
+        CType(Me.dgvInventoryHistory, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents flowLayoutPanelActions As FlowLayoutPanel
-    Friend WithEvents btnEdit1 As Button
-    Friend WithEvents btnAdd As Button
-    Friend WithEvents btnView As Button
-    Friend WithEvents btnDelete As Button
+    Friend WithEvents dgvInventoryHistory As DataGridView
+    Friend WithEvents movement_id As DataGridViewTextBoxColumn
+    Friend WithEvents colDate As DataGridViewTextBoxColumn
+    Friend WithEvents colProduct As DataGridViewTextBoxColumn
+    Friend WithEvents colMovementType As DataGridViewTextBoxColumn
+    Friend WithEvents colQuantity As DataGridViewTextBoxColumn
+    Friend WithEvents colUser As DataGridViewTextBoxColumn
+    Friend WithEvents colRemarks As DataGridViewTextBoxColumn
 End Class

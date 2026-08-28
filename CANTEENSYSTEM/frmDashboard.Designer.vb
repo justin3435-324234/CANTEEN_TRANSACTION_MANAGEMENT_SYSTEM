@@ -22,19 +22,23 @@ Partial Class frmDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint25 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim DataPoint26 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim DataPoint27 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim DataPoint28 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim DataPoint29 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim DataPoint30 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlMainContent = New System.Windows.Forms.Panel()
         Me.pnlSalaryDeductionView = New System.Windows.Forms.Panel()
         Me.dgvTextBoxColumn = New System.Windows.Forms.DataGridView()
@@ -68,7 +72,7 @@ Partial Class frmDashboard
         Me.pnlReportsView = New System.Windows.Forms.Panel()
         Me.pnlSettingsView = New System.Windows.Forms.Panel()
         Me.pnlSidebar = New System.Windows.Forms.Panel()
-        Me.lblTitleDashboard = New System.Windows.Forms.Label()
+        Me.lblSystemTitle = New System.Windows.Forms.Label()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.btnSettings = New System.Windows.Forms.Button()
         Me.btnReports = New System.Windows.Forms.Button()
@@ -102,7 +106,6 @@ Partial Class frmDashboard
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnView = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
-        Me.dgvInventory = New System.Windows.Forms.DataGridView()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnEditProduct = New System.Windows.Forms.Button()
         Me.btnAddProduct = New System.Windows.Forms.Button()
@@ -127,6 +130,7 @@ Partial Class frmDashboard
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.txtSearchProducts = New System.Windows.Forms.TextBox()
         Me.cboCategory = New System.Windows.Forms.ComboBox()
+        Me.dgvInventoryHistory = New System.Windows.Forms.DataGridView()
         Me.product_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.category_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -134,8 +138,15 @@ Partial Class frmDashboard
         Me.stock_quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.reorder_level = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.created_at = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblInStockIcon = New System.Windows.Forms.Label()
+        Me.lblLowStockIcon = New System.Windows.Forms.Label()
+        Me.lblOut = New System.Windows.Forms.Label()
+        Me.lblInStockValue = New System.Windows.Forms.Label()
+        Me.lblLowSValue = New System.Windows.Forms.Label()
+        Me.lblOutStockVal = New System.Windows.Forms.Label()
+        Me.btnMenu = New System.Windows.Forms.Button()
         Me.pnlMainContent.SuspendLayout()
         Me.pnlSalaryDeductionView.SuspendLayout()
         CType(Me.dgvTextBoxColumn, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,7 +170,6 @@ Partial Class frmDashboard
         Me.Panel6.SuspendLayout()
         Me.pnlHeader.SuspendLayout()
         Me.flowLayoutPanelActions.SuspendLayout()
-        CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -169,17 +179,20 @@ Partial Class frmDashboard
         Me.pnlTotalItems.SuspendLayout()
         Me.pnlLowStock.SuspendLayout()
         Me.pnlOutOfStock.SuspendLayout()
+        CType(Me.dgvInventoryHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlMainContent
         '
+        Me.pnlMainContent.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMainContent.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlMainContent.Controls.Add(Me.pnlDashboardView)
         Me.pnlMainContent.Controls.Add(Me.pnlInventoryView)
         Me.pnlMainContent.Controls.Add(Me.pnlSalaryDeductionView)
-        Me.pnlMainContent.Controls.Add(Me.pnlDashboardView)
         Me.pnlMainContent.Controls.Add(Me.pnlReportsView)
         Me.pnlMainContent.Controls.Add(Me.pnlSettingsView)
-        Me.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMainContent.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.pnlMainContent.Location = New System.Drawing.Point(0, 0)
         Me.pnlMainContent.Name = "pnlMainContent"
@@ -205,42 +218,42 @@ Partial Class frmDashboard
         '
         'dgvTextBoxColumn
         '
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.dgvTextBoxColumn.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.dgvTextBoxColumn.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle33
         Me.dgvTextBoxColumn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvTextBoxColumn.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
         Me.dgvTextBoxColumn.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(11, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.dgvTextBoxColumn.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvTextBoxColumn.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(91, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvTextBoxColumn.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(91, Byte), Integer))
+        DataGridViewCellStyle34.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle34.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvTextBoxColumn.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle34
         Me.dgvTextBoxColumn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTextBoxColumn.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colEmpNo, Me.colName, Me.colPosition, Me.DeductionStatus, Me.colPeriodStart, Me.colPeriodEnd})
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle35.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle35.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle35
         Me.dgvTextBoxColumn.GridColor = System.Drawing.Color.Gainsboro
         Me.dgvTextBoxColumn.Location = New System.Drawing.Point(213, 213)
         Me.dgvTextBoxColumn.Name = "dgvTextBoxColumn"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(210, Byte), Integer))
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvTextBoxColumn.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle36.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
+        DataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(210, Byte), Integer))
+        DataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvTextBoxColumn.RowHeadersDefaultCellStyle = DataGridViewCellStyle36
         Me.dgvTextBoxColumn.RowHeadersVisible = False
         Me.dgvTextBoxColumn.RowHeadersWidth = 51
         Me.dgvTextBoxColumn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -287,6 +300,12 @@ Partial Class frmDashboard
         '
         Me.pnlInventoryAlerts.BackColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(104, Byte), Integer))
         Me.pnlInventoryAlerts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlInventoryAlerts.Controls.Add(Me.lblOutStockVal)
+        Me.pnlInventoryAlerts.Controls.Add(Me.lblLowSValue)
+        Me.pnlInventoryAlerts.Controls.Add(Me.lblInStockValue)
+        Me.pnlInventoryAlerts.Controls.Add(Me.lblOut)
+        Me.pnlInventoryAlerts.Controls.Add(Me.lblLowStockIcon)
+        Me.pnlInventoryAlerts.Controls.Add(Me.lblInStockIcon)
         Me.pnlInventoryAlerts.Controls.Add(Me.lblInventoryAlerts)
         Me.pnlInventoryAlerts.Location = New System.Drawing.Point(515, 98)
         Me.pnlInventoryAlerts.Name = "pnlInventoryAlerts"
@@ -332,24 +351,24 @@ Partial Class frmDashboard
         Me.dgvRecentTransactions.AllowUserToAddRows = False
         Me.dgvRecentTransactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvRecentTransactions.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(104, Byte), Integer))
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvRecentTransactions.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(104, Byte), Integer))
+        DataGridViewCellStyle37.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRecentTransactions.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle37
         Me.dgvRecentTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvRecentTransactions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colTransactionNo, Me.colTransactionDate, Me.colPaymentMethod, Me.colAmount, Me.colStatus1})
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(61, Byte), Integer))
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvRecentTransactions.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle38.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle38.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(61, Byte), Integer))
+        DataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvRecentTransactions.DefaultCellStyle = DataGridViewCellStyle38
         Me.dgvRecentTransactions.GridColor = System.Drawing.Color.Gray
         Me.dgvRecentTransactions.Location = New System.Drawing.Point(7, 27)
         Me.dgvRecentTransactions.MultiSelect = False
@@ -400,20 +419,43 @@ Partial Class frmDashboard
         '
         Me.Chart1.BackColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.Chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
-        ChartArea1.AxisX.Title = "Day"
-        ChartArea1.AxisY.Title = "Sales (₱)"
-        ChartArea1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Enabled = False
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        ChartArea5.AxisX.IsLabelAutoFit = False
+        ChartArea5.AxisX.LabelStyle.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White
+        ChartArea5.AxisX.Title = "Day"
+        ChartArea5.AxisX.TitleFont = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea5.AxisX.TitleForeColor = System.Drawing.Color.White
+        ChartArea5.AxisY.IsLabelAutoFit = False
+        ChartArea5.AxisY.LabelStyle.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea5.AxisY.Title = "Sales (₱)"
+        ChartArea5.AxisY.TitleFont = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea5.AxisY.TitleForeColor = System.Drawing.Color.White
+        ChartArea5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
+        ChartArea5.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea5)
+        Legend5.Enabled = False
+        Legend5.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend5)
         Me.Chart1.Location = New System.Drawing.Point(213, 98)
         Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Sales"
-        Me.Chart1.Series.Add(Series1)
+        Series5.BorderWidth = 0
+        Series5.ChartArea = "ChartArea1"
+        Series5.Color = System.Drawing.Color.SlateBlue
+        Series5.Legend = "Legend1"
+        Series5.Name = "Daily Sales"
+        DataPoint25.AxisLabel = "Mon"
+        DataPoint26.AxisLabel = "Tue"
+        DataPoint27.AxisLabel = "Wed"
+        DataPoint28.AxisLabel = "Thur"
+        DataPoint29.AxisLabel = "Fri"
+        DataPoint30.AxisLabel = "Sat"
+        Series5.Points.Add(DataPoint25)
+        Series5.Points.Add(DataPoint26)
+        Series5.Points.Add(DataPoint27)
+        Series5.Points.Add(DataPoint28)
+        Series5.Points.Add(DataPoint29)
+        Series5.Points.Add(DataPoint30)
+        Me.Chart1.Series.Add(Series5)
         Me.Chart1.Size = New System.Drawing.Size(292, 172)
         Me.Chart1.TabIndex = 5
         Me.Chart1.Text = "Chart1"
@@ -426,7 +468,7 @@ Partial Class frmDashboard
         Me.cardSalaryDeduction.ForeColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(92, Byte), Integer))
         Me.cardSalaryDeduction.Location = New System.Drawing.Point(641, 12)
         Me.cardSalaryDeduction.Name = "cardSalaryDeduction"
-        Me.cardSalaryDeduction.Size = New System.Drawing.Size(143, 82)
+        Me.cardSalaryDeduction.Size = New System.Drawing.Size(143, 80)
         Me.cardSalaryDeduction.TabIndex = 4
         '
         'lblSalaryDeductionVal
@@ -552,6 +594,8 @@ Partial Class frmDashboard
         '
         'pnlInventoryView
         '
+        Me.pnlInventoryView.Controls.Add(Me.Label4)
+        Me.pnlInventoryView.Controls.Add(Me.dgvInventoryHistory)
         Me.pnlInventoryView.Controls.Add(Me.cboCategory)
         Me.pnlInventoryView.Controls.Add(Me.txtSearchProducts)
         Me.pnlInventoryView.Controls.Add(Me.Panel12)
@@ -559,7 +603,6 @@ Partial Class frmDashboard
         Me.pnlInventoryView.Controls.Add(Me.Panel10)
         Me.pnlInventoryView.Controls.Add(Me.Panel7)
         Me.pnlInventoryView.Controls.Add(Me.FlowLayoutPanel1)
-        Me.pnlInventoryView.Controls.Add(Me.dgvInventory)
         Me.pnlInventoryView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlInventoryView.Location = New System.Drawing.Point(0, 0)
         Me.pnlInventoryView.Name = "pnlInventoryView"
@@ -585,27 +628,29 @@ Partial Class frmDashboard
         'pnlSidebar
         '
         Me.pnlSidebar.BackColor = System.Drawing.Color.Gold
-        Me.pnlSidebar.Controls.Add(Me.lblTitleDashboard)
+        Me.pnlSidebar.Controls.Add(Me.btnMenu)
+        Me.pnlSidebar.Controls.Add(Me.lblSystemTitle)
         Me.pnlSidebar.Controls.Add(Me.btnLogout)
         Me.pnlSidebar.Controls.Add(Me.btnSettings)
         Me.pnlSidebar.Controls.Add(Me.btnReports)
         Me.pnlSidebar.Controls.Add(Me.btnSalaryDeduction)
         Me.pnlSidebar.Controls.Add(Me.btnInventory)
         Me.pnlSidebar.Controls.Add(Me.btnDashboard)
+        Me.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlSidebar.Location = New System.Drawing.Point(0, 0)
         Me.pnlSidebar.Name = "pnlSidebar"
-        Me.pnlSidebar.Size = New System.Drawing.Size(200, 450)
+        Me.pnlSidebar.Size = New System.Drawing.Size(220, 450)
         Me.pnlSidebar.TabIndex = 0
         '
-        'lblTitleDashboard
+        'lblSystemTitle
         '
-        Me.lblTitleDashboard.AutoSize = True
-        Me.lblTitleDashboard.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitleDashboard.Location = New System.Drawing.Point(56, 9)
-        Me.lblTitleDashboard.Name = "lblTitleDashboard"
-        Me.lblTitleDashboard.Size = New System.Drawing.Size(141, 15)
-        Me.lblTitleDashboard.TabIndex = 0
-        Me.lblTitleDashboard.Text = "LYCEUM OF ALABANG"
+        Me.lblSystemTitle.AutoSize = True
+        Me.lblSystemTitle.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSystemTitle.Location = New System.Drawing.Point(44, 7)
+        Me.lblSystemTitle.Name = "lblSystemTitle"
+        Me.lblSystemTitle.Size = New System.Drawing.Size(141, 15)
+        Me.lblSystemTitle.TabIndex = 0
+        Me.lblSystemTitle.Text = "LYCEUM OF ALABANG"
         '
         'btnLogout
         '
@@ -636,7 +681,7 @@ Partial Class frmDashboard
         Me.btnReports.FlatAppearance.BorderSize = 0
         Me.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReports.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReports.Location = New System.Drawing.Point(18, 111)
+        Me.btnReports.Location = New System.Drawing.Point(18, 191)
         Me.btnReports.Name = "btnReports"
         Me.btnReports.Size = New System.Drawing.Size(162, 23)
         Me.btnReports.TabIndex = 28
@@ -648,9 +693,9 @@ Partial Class frmDashboard
         Me.btnSalaryDeduction.FlatAppearance.BorderSize = 0
         Me.btnSalaryDeduction.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalaryDeduction.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalaryDeduction.Location = New System.Drawing.Point(0, 140)
+        Me.btnSalaryDeduction.Location = New System.Drawing.Point(18, 220)
         Me.btnSalaryDeduction.Name = "btnSalaryDeduction"
-        Me.btnSalaryDeduction.Size = New System.Drawing.Size(197, 25)
+        Me.btnSalaryDeduction.Size = New System.Drawing.Size(168, 25)
         Me.btnSalaryDeduction.TabIndex = 27
         Me.btnSalaryDeduction.Text = "Employee Salary Deduction"
         Me.btnSalaryDeduction.UseVisualStyleBackColor = True
@@ -660,7 +705,7 @@ Partial Class frmDashboard
         Me.btnInventory.FlatAppearance.BorderSize = 0
         Me.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnInventory.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnInventory.Location = New System.Drawing.Point(18, 82)
+        Me.btnInventory.Location = New System.Drawing.Point(18, 160)
         Me.btnInventory.Name = "btnInventory"
         Me.btnInventory.Size = New System.Drawing.Size(162, 23)
         Me.btnInventory.TabIndex = 25
@@ -672,7 +717,7 @@ Partial Class frmDashboard
         Me.btnDashboard.FlatAppearance.BorderSize = 0
         Me.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDashboard.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDashboard.Location = New System.Drawing.Point(18, 53)
+        Me.btnDashboard.Location = New System.Drawing.Point(18, 131)
         Me.btnDashboard.Name = "btnDashboard"
         Me.btnDashboard.Size = New System.Drawing.Size(162, 23)
         Me.btnDashboard.TabIndex = 21
@@ -968,48 +1013,6 @@ Partial Class frmDashboard
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = False
         '
-        'dgvInventory
-        '
-        Me.dgvInventory.AllowUserToAddRows = False
-        Me.dgvInventory.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.dgvInventory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvInventory.BackgroundColor = System.Drawing.Color.White
-        Me.dgvInventory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(91, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvInventory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvInventory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.product_id, Me.product_name, Me.category_name, Me.price, Me.stock_quantity, Me.reorder_level, Me.status, Me.Column1, Me.created_at})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvInventory.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvInventory.EnableHeadersVisualStyles = False
-        Me.dgvInventory.GridColor = System.Drawing.Color.Gainsboro
-        Me.dgvInventory.Location = New System.Drawing.Point(208, 88)
-        Me.dgvInventory.MultiSelect = False
-        Me.dgvInventory.Name = "dgvInventory"
-        Me.dgvInventory.RowHeadersVisible = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(210, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvInventory.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgvInventory.RowTemplate.Height = 38
-        Me.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvInventory.Size = New System.Drawing.Size(404, 311)
-        Me.dgvInventory.TabIndex = 0
-        '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -1017,7 +1020,7 @@ Partial Class frmDashboard
         Me.FlowLayoutPanel1.Controls.Add(Me.btnAddProduct)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnRestock)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnDeactivateProduct)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(213, 407)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(367, 407)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(361, 31)
         Me.FlowLayoutPanel1.TabIndex = 3
@@ -1139,27 +1142,27 @@ Partial Class frmDashboard
         '
         Me.Panel10.BackColor = System.Drawing.Color.Gold
         Me.Panel10.Controls.Add(Me.pnlTotalItems)
-        Me.Panel10.Location = New System.Drawing.Point(621, 92)
+        Me.Panel10.Location = New System.Drawing.Point(645, 86)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(175, 92)
+        Me.Panel10.Size = New System.Drawing.Size(155, 84)
         Me.Panel10.TabIndex = 5
         '
         'Panel11
         '
         Me.Panel11.BackColor = System.Drawing.Color.Gold
         Me.Panel11.Controls.Add(Me.pnlLowStock)
-        Me.Panel11.Location = New System.Drawing.Point(621, 193)
+        Me.Panel11.Location = New System.Drawing.Point(645, 182)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(175, 92)
+        Me.Panel11.Size = New System.Drawing.Size(155, 84)
         Me.Panel11.TabIndex = 6
         '
         'Panel12
         '
         Me.Panel12.BackColor = System.Drawing.Color.Gold
         Me.Panel12.Controls.Add(Me.pnlOutOfStock)
-        Me.Panel12.Location = New System.Drawing.Point(621, 291)
+        Me.Panel12.Location = New System.Drawing.Point(645, 281)
         Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(175, 92)
+        Me.Panel12.Size = New System.Drawing.Size(155, 84)
         Me.Panel12.TabIndex = 6
         '
         'pnlTotalItems
@@ -1167,9 +1170,9 @@ Partial Class frmDashboard
         Me.pnlTotalItems.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.pnlTotalItems.Controls.Add(Me.lblTotalItemsValue)
         Me.pnlTotalItems.Controls.Add(Me.lblTotalItemsTitle)
-        Me.pnlTotalItems.Location = New System.Drawing.Point(5, 4)
+        Me.pnlTotalItems.Location = New System.Drawing.Point(6, 3)
         Me.pnlTotalItems.Name = "pnlTotalItems"
-        Me.pnlTotalItems.Size = New System.Drawing.Size(165, 85)
+        Me.pnlTotalItems.Size = New System.Drawing.Size(144, 78)
         Me.pnlTotalItems.TabIndex = 0
         '
         'lblTotalItemsTitle
@@ -1177,7 +1180,7 @@ Partial Class frmDashboard
         Me.lblTotalItemsTitle.AutoSize = True
         Me.lblTotalItemsTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalItemsTitle.ForeColor = System.Drawing.Color.Gold
-        Me.lblTotalItemsTitle.Location = New System.Drawing.Point(27, 13)
+        Me.lblTotalItemsTitle.Location = New System.Drawing.Point(16, 15)
         Me.lblTotalItemsTitle.Name = "lblTotalItemsTitle"
         Me.lblTotalItemsTitle.Size = New System.Drawing.Size(106, 20)
         Me.lblTotalItemsTitle.TabIndex = 0
@@ -1188,7 +1191,7 @@ Partial Class frmDashboard
         Me.lblTotalItemsValue.AutoSize = True
         Me.lblTotalItemsValue.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalItemsValue.ForeColor = System.Drawing.Color.Gold
-        Me.lblTotalItemsValue.Location = New System.Drawing.Point(64, 35)
+        Me.lblTotalItemsValue.Location = New System.Drawing.Point(49, 37)
         Me.lblTotalItemsValue.Name = "lblTotalItemsValue"
         Me.lblTotalItemsValue.Size = New System.Drawing.Size(33, 37)
         Me.lblTotalItemsValue.TabIndex = 1
@@ -1199,9 +1202,9 @@ Partial Class frmDashboard
         Me.pnlLowStock.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.pnlLowStock.Controls.Add(Me.lblLowStockValue)
         Me.pnlLowStock.Controls.Add(Me.lblLowStockTitle)
-        Me.pnlLowStock.Location = New System.Drawing.Point(4, 4)
+        Me.pnlLowStock.Location = New System.Drawing.Point(6, 3)
         Me.pnlLowStock.Name = "pnlLowStock"
-        Me.pnlLowStock.Size = New System.Drawing.Size(165, 85)
+        Me.pnlLowStock.Size = New System.Drawing.Size(144, 78)
         Me.pnlLowStock.TabIndex = 2
         '
         'lblLowStockValue
@@ -1209,7 +1212,7 @@ Partial Class frmDashboard
         Me.lblLowStockValue.AutoSize = True
         Me.lblLowStockValue.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLowStockValue.ForeColor = System.Drawing.Color.Gold
-        Me.lblLowStockValue.Location = New System.Drawing.Point(64, 35)
+        Me.lblLowStockValue.Location = New System.Drawing.Point(46, 35)
         Me.lblLowStockValue.Name = "lblLowStockValue"
         Me.lblLowStockValue.Size = New System.Drawing.Size(33, 37)
         Me.lblLowStockValue.TabIndex = 1
@@ -1220,7 +1223,7 @@ Partial Class frmDashboard
         Me.lblLowStockTitle.AutoSize = True
         Me.lblLowStockTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLowStockTitle.ForeColor = System.Drawing.Color.Gold
-        Me.lblLowStockTitle.Location = New System.Drawing.Point(38, 14)
+        Me.lblLowStockTitle.Location = New System.Drawing.Point(16, 15)
         Me.lblLowStockTitle.Name = "lblLowStockTitle"
         Me.lblLowStockTitle.Size = New System.Drawing.Size(93, 20)
         Me.lblLowStockTitle.TabIndex = 0
@@ -1231,9 +1234,9 @@ Partial Class frmDashboard
         Me.pnlOutOfStock.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.pnlOutOfStock.Controls.Add(Me.lblOutOfStockValue)
         Me.pnlOutOfStock.Controls.Add(Me.lblTitle)
-        Me.pnlOutOfStock.Location = New System.Drawing.Point(5, 4)
+        Me.pnlOutOfStock.Location = New System.Drawing.Point(4, 3)
         Me.pnlOutOfStock.Name = "pnlOutOfStock"
-        Me.pnlOutOfStock.Size = New System.Drawing.Size(165, 85)
+        Me.pnlOutOfStock.Size = New System.Drawing.Size(144, 78)
         Me.pnlOutOfStock.TabIndex = 3
         '
         'lblOutOfStockValue
@@ -1241,7 +1244,7 @@ Partial Class frmDashboard
         Me.lblOutOfStockValue.AutoSize = True
         Me.lblOutOfStockValue.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOutOfStockValue.ForeColor = System.Drawing.Color.Gold
-        Me.lblOutOfStockValue.Location = New System.Drawing.Point(64, 35)
+        Me.lblOutOfStockValue.Location = New System.Drawing.Point(49, 31)
         Me.lblOutOfStockValue.Name = "lblOutOfStockValue"
         Me.lblOutOfStockValue.Size = New System.Drawing.Size(33, 37)
         Me.lblOutOfStockValue.TabIndex = 1
@@ -1252,7 +1255,7 @@ Partial Class frmDashboard
         Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.Gold
-        Me.lblTitle.Location = New System.Drawing.Point(27, 13)
+        Me.lblTitle.Location = New System.Drawing.Point(16, 11)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(113, 20)
         Me.lblTitle.TabIndex = 0
@@ -1271,55 +1274,183 @@ Partial Class frmDashboard
         '
         Me.cboCategory.FormattingEnabled = True
         Me.cboCategory.Items.AddRange(New Object() {"All Categories", "", "Food", "", "Drinks", "", "Snacks", "", "Desserts", "", "Other"})
-        Me.cboCategory.Location = New System.Drawing.Point(445, 61)
+        Me.cboCategory.Location = New System.Drawing.Point(472, 64)
         Me.cboCategory.Name = "cboCategory"
         Me.cboCategory.Size = New System.Drawing.Size(167, 21)
         Me.cboCategory.TabIndex = 8
+        '
+        'dgvInventoryHistory
+        '
+        Me.dgvInventoryHistory.AllowUserToAddRows = False
+        Me.dgvInventoryHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvInventoryHistory.BackgroundColor = System.Drawing.Color.White
+        DataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(CType(CType(16, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(104, Byte), Integer))
+        DataGridViewCellStyle39.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvInventoryHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle39
+        Me.dgvInventoryHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvInventoryHistory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.product_id, Me.product_name, Me.category_name, Me.price, Me.stock_quantity, Me.reorder_level, Me.status, Me.created_at})
+        DataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle40.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle40.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvInventoryHistory.DefaultCellStyle = DataGridViewCellStyle40
+        Me.dgvInventoryHistory.GridColor = System.Drawing.Color.Gray
+        Me.dgvInventoryHistory.Location = New System.Drawing.Point(203, 94)
+        Me.dgvInventoryHistory.MultiSelect = False
+        Me.dgvInventoryHistory.Name = "dgvInventoryHistory"
+        Me.dgvInventoryHistory.ReadOnly = True
+        Me.dgvInventoryHistory.RowHeadersVisible = False
+        Me.dgvInventoryHistory.RowHeadersWidth = 51
+        Me.dgvInventoryHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvInventoryHistory.Size = New System.Drawing.Size(436, 307)
+        Me.dgvInventoryHistory.TabIndex = 15
         '
         'product_id
         '
         Me.product_id.HeaderText = "Product ID"
         Me.product_id.Name = "product_id"
+        Me.product_id.ReadOnly = True
         '
         'product_name
         '
         Me.product_name.HeaderText = "Product Name"
         Me.product_name.Name = "product_name"
+        Me.product_name.ReadOnly = True
         '
         'category_name
         '
         Me.category_name.HeaderText = "Category"
         Me.category_name.Name = "category_name"
+        Me.category_name.ReadOnly = True
         '
         'price
         '
         Me.price.HeaderText = "Price"
         Me.price.Name = "price"
+        Me.price.ReadOnly = True
         '
         'stock_quantity
         '
         Me.stock_quantity.HeaderText = "Quantity"
         Me.stock_quantity.Name = "stock_quantity"
+        Me.stock_quantity.ReadOnly = True
         '
         'reorder_level
         '
         Me.reorder_level.HeaderText = "Reorder Level"
         Me.reorder_level.Name = "reorder_level"
+        Me.reorder_level.ReadOnly = True
         '
         'status
         '
         Me.status.HeaderText = "Status"
         Me.status.Name = "status"
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Created At"
-        Me.Column1.Name = "Column1"
+        Me.status.ReadOnly = True
         '
         'created_at
         '
-        Me.created_at.HeaderText = "Column2"
+        Me.created_at.HeaderText = "Created At"
         Me.created_at.Name = "created_at"
+        Me.created_at.ReadOnly = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Gold
+        Me.Label4.Location = New System.Drawing.Point(402, 67)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(70, 15)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "CATEGORY:"
+        '
+        'lblInStockIcon
+        '
+        Me.lblInStockIcon.AutoSize = True
+        Me.lblInStockIcon.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInStockIcon.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblInStockIcon.Location = New System.Drawing.Point(11, 43)
+        Me.lblInStockIcon.Name = "lblInStockIcon"
+        Me.lblInStockIcon.Size = New System.Drawing.Size(90, 17)
+        Me.lblInStockIcon.TabIndex = 1
+        Me.lblInStockIcon.Text = "🟢 IN STOCK"
+        '
+        'lblLowStockIcon
+        '
+        Me.lblLowStockIcon.AutoSize = True
+        Me.lblLowStockIcon.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLowStockIcon.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblLowStockIcon.Location = New System.Drawing.Point(11, 77)
+        Me.lblLowStockIcon.Name = "lblLowStockIcon"
+        Me.lblLowStockIcon.Size = New System.Drawing.Size(118, 17)
+        Me.lblLowStockIcon.TabIndex = 2
+        Me.lblLowStockIcon.Text = "🟠  LOW STOCK  "
+        '
+        'lblOut
+        '
+        Me.lblOut.AutoSize = True
+        Me.lblOut.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOut.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblOut.Location = New System.Drawing.Point(11, 108)
+        Me.lblOut.Name = "lblOut"
+        Me.lblOut.Size = New System.Drawing.Size(128, 17)
+        Me.lblOut.TabIndex = 3
+        Me.lblOut.Text = "🟠  OUT OF STOCK"
+        '
+        'lblInStockValue
+        '
+        Me.lblInStockValue.AutoSize = True
+        Me.lblInStockValue.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInStockValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblInStockValue.Location = New System.Drawing.Point(150, 71)
+        Me.lblInStockValue.Name = "lblInStockValue"
+        Me.lblInStockValue.Size = New System.Drawing.Size(23, 25)
+        Me.lblInStockValue.TabIndex = 4
+        Me.lblInStockValue.Text = "0"
+        '
+        'lblLowSValue
+        '
+        Me.lblLowSValue.AutoSize = True
+        Me.lblLowSValue.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLowSValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblLowSValue.Location = New System.Drawing.Point(150, 36)
+        Me.lblLowSValue.Name = "lblLowSValue"
+        Me.lblLowSValue.Size = New System.Drawing.Size(23, 25)
+        Me.lblLowSValue.TabIndex = 5
+        Me.lblLowSValue.Text = "0"
+        '
+        'lblOutStockVal
+        '
+        Me.lblOutStockVal.AutoSize = True
+        Me.lblOutStockVal.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOutStockVal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblOutStockVal.Location = New System.Drawing.Point(152, 102)
+        Me.lblOutStockVal.Name = "lblOutStockVal"
+        Me.lblOutStockVal.Size = New System.Drawing.Size(23, 25)
+        Me.lblOutStockVal.TabIndex = 6
+        Me.lblOutStockVal.Text = "0"
+        '
+        'btnMenu
+        '
+        Me.btnMenu.BackColor = System.Drawing.Color.Transparent
+        Me.btnMenu.FlatAppearance.BorderSize = 0
+        Me.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMenu.Font = New System.Drawing.Font("Segoe UI Black", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMenu.ForeColor = System.Drawing.Color.Navy
+        Me.btnMenu.Location = New System.Drawing.Point(0, -2)
+        Me.btnMenu.Name = "btnMenu"
+        Me.btnMenu.Size = New System.Drawing.Size(48, 35)
+        Me.btnMenu.TabIndex = 31
+        Me.btnMenu.Text = "☰"
+        Me.btnMenu.UseVisualStyleBackColor = False
         '
         'frmDashboard
         '
@@ -1369,7 +1500,6 @@ Partial Class frmDashboard
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeader.PerformLayout()
         Me.flowLayoutPanelActions.ResumeLayout(False)
-        CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
@@ -1383,6 +1513,7 @@ Partial Class frmDashboard
         Me.pnlLowStock.PerformLayout()
         Me.pnlOutOfStock.ResumeLayout(False)
         Me.pnlOutOfStock.PerformLayout()
+        CType(Me.dgvInventoryHistory, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1413,7 +1544,7 @@ Partial Class frmDashboard
     Friend WithEvents lblItemsSoldVal As Label
     Friend WithEvents lblDeductionTitle As Label
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
-    Friend WithEvents lblTitleDashboard As Label
+    Friend WithEvents lblSystemTitle As Label
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents cmbRoleFilter As ComboBox
     Friend WithEvents dgvTextBoxColumn As DataGridView
@@ -1454,7 +1585,6 @@ Partial Class frmDashboard
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnView As Button
     Friend WithEvents btnDelete As Button
-    Friend WithEvents dgvInventory As DataGridView
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents btnEditProduct As Button
     Friend WithEvents btnAddProduct As Button
@@ -1479,6 +1609,7 @@ Partial Class frmDashboard
     Friend WithEvents lblLowStockTitle As Label
     Friend WithEvents cboCategory As ComboBox
     Friend WithEvents txtSearchProducts As TextBox
+    Friend WithEvents dgvInventoryHistory As DataGridView
     Friend WithEvents product_id As DataGridViewTextBoxColumn
     Friend WithEvents product_name As DataGridViewTextBoxColumn
     Friend WithEvents category_name As DataGridViewTextBoxColumn
@@ -1486,6 +1617,13 @@ Partial Class frmDashboard
     Friend WithEvents stock_quantity As DataGridViewTextBoxColumn
     Friend WithEvents reorder_level As DataGridViewTextBoxColumn
     Friend WithEvents status As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents created_at As DataGridViewTextBoxColumn
+    Friend WithEvents Label4 As Label
+    Friend WithEvents lblOut As Label
+    Friend WithEvents lblLowStockIcon As Label
+    Friend WithEvents lblInStockIcon As Label
+    Friend WithEvents lblOutStockVal As Label
+    Friend WithEvents lblLowSValue As Label
+    Friend WithEvents lblInStockValue As Label
+    Friend WithEvents btnMenu As Button
 End Class

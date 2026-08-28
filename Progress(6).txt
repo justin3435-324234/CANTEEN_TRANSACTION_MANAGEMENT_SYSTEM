@@ -58,8 +58,8 @@
 * [x] `stock_movements`
 * [x] `salary_deductions`
 * [x] `audit_logs`
-* [ ] `kiosk_orders`
-* [ ] `kiosk_order_details`
+* [X] `kiosk_orders`
+* [X] `kiosk_order_details`
 
 ### Database Setup
 
@@ -122,41 +122,33 @@
 
 * [x] Sales Overview title
 * [x] Bar Chart
-* [] X-Axis setup
-* [] Y-Axis setup
-* [] Series setup
-* [] Mon–Sat structure
+* [x] X-Axis setup
+* [x] Y-Axis setup
+* [x] Series setup
+* [x] Mon–Sat structure
 * [ ] Connect actual sales data from database
-* [ ] Dynamic chart values
+* [x] Dynamic chart values
 
 ### Recent Transactions
 
-* [] Recent Transactions panel
-* [] DGV
-* [] Transaction Number
-* [] Payment Method
-* [] Amount
-* [] Status
-* [] View All button
+* [x] Recent Transactions panel
+* [x] DGV
+* [x] Transaction Number
+* [x] Payment Method
+* [x] Amount
+* [x] Status
+* [x] View All button
 * [] Connect to database
 
 ### Inventory Alerts
 
-* [] Inventory Alerts panel
-* [] Out of Stock
-* [] Low Stock
-* [] In Stock
-* [] View Inventory button
+* [x] Inventory Alerts panel
+* [x] Out of Stock
+* [x] Low Stock
+* [x] In Stock
+* [x] View Inventory button
 * [] Dynamic counts
 * [] Connect to database
-
-### Top Selling Products
-
-* [x] Section planned/designed
-* [x] Product Name
-* [] Quantity Sold
-* [ ] Connect to transaction data
-* [ ] Dynamic ranking
 
 ### Dashboard Design
 
@@ -164,7 +156,7 @@
 * [x] Header
 * [x] KPI Cards
 * [x] Graph placement
-* [ ] Hover effects
+* [x] Hover effects
 * [ ] Active sidebar indicator
 * [ ] Final UI polish
 
@@ -212,10 +204,10 @@
 * [ ] Automatically appear in POS
 * [ ] Automatically appear in Kiosk
 * [ ] Generate Product Panel automatically
-* [ ] Edit Product → update POS
-* [ ] Edit Product → update Kiosk
-* [ ] Deactivate → hide from POS
-* [ ] Deactivate → hide from Kiosk
+* [x] Edit Product → update POS btn only
+* [x] Edit Product → update Kiosk btn only
+* [x] Deactivate → hide from POS btn only
+* [x] Deactivate → hide from Kiosk btn only
 * [ ] Out-of-stock → prevent ordering
 
 ---
@@ -233,9 +225,9 @@
 * [ ] Low-stock warning
 * [ ] Out-of-stock detection
 * [ ] Prevent selling unavailable products
-* [ ] Stock movement history
-* [ ] Inventory search
-* [ ] Inventory filter
+* [x] Stock movement history
+* [x] Inventory search
+* [x] Inventory filter
 * [ ] Inventory report
 * [ ] Connect Inventory to database
 
@@ -439,10 +431,10 @@
 
 ### 🚨 REMOVED
 
-* [ ] ~~Deduction Limit~~
-* [ ] ~~Limit Reached~~
-* [ ] ~~Remaining Limit~~
-* [ ] ~~Maximum Deduction Amount~~
+* [x] ~~Deduction Limit~~
+* [x] ~~Limit Reached~~
+* [x] ~~Remaining Limit~~
+* [x] ~~Maximum Deduction Amount~~
 
 **NEW RULE: Salary deductions have NO system limit.** ☑️
 
@@ -480,13 +472,12 @@
 * [ ] Category Sales
 
 ### Salary Deduction
-
-* [ ] Employee Deductions
-* [ ] Teacher Deductions
-* [ ] Pending Deductions
-* [ ] Completed Deductions
-* [ ] Deduction History
-* [ ] Date Filtering
+DGV- DONE NO CODE
+* [x] Employee Deductions
+* [x] Pending Deductions
+* [x] Completed Deductions
+* [x] Deduction History
+* [x] Date Filtering
 
 ### Export
 
@@ -656,22 +647,22 @@ Yep — if you mean the **priority/order of what we should build next**, here’
 
 ### 🥇 PRIORITY 1 — DATABASE
 
-* [ ] Finalize all tables
-* [ ] Add `kiosk_orders`
-* [ ] Add `kiosk_order_details`
-* [ ] Check Primary/Foreign Keys
+* [X] Finalize all tables
+* [X] Add `kiosk_orders`
+* [X] Add `kiosk_order_details`
+* [X] Check Primary/Foreign Keys
 * [ ] Check relationships
-* [ ] Remove salary deduction limit
+* [X] Remove salary deduction limit
 
 ### 🥈 PRIORITY 2 — INVENTORY
 
-* [ ] Add Product
-* [ ] Edit Product
-* [ ] Deactivate Product
-* [ ] Stock Quantity
-* [ ] Stock In/Out
-* [ ] Low Stock
-* [ ] Out of Stock
+* [X] Add Product
+* [X] Edit Product
+* [X] Deactivate Product
+* [ ] Stock Quantity- 
+* [ ] Total Items - Panel 
+* [X] Low Stock-PANEL
+* [X] Out of Stock-Panel
 * [ ] Connect Inventory → Database
 
 ### 🥉 PRIORITY 3 — DYNAMIC PRODUCTS
@@ -730,7 +721,7 @@ This is **very important** because of your professor's requirement.
 * [ ] POS → Salary Deduction
 * [ ] Deduction history
 * [ ] Reports
-* [ ] **No deduction limit**
+* [X] **No deduction limit**
 
 ### 8️⃣ PRIORITY 8 — RECEIPTS
 

@@ -1,6 +1,10 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class frmDashboard
+    Private sidebarExpanded As Boolean = True
+
+    Private Const SIDEBAR_EXPANDED_WIDTH As Integer = 220
+    Private Const SIDEBAR_COLLAPSED_WIDTH As Integer = 65
 
     Private userRole As String
 
@@ -251,7 +255,7 @@ Public Class frmDashboard
 
     End Sub
 
-Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTextBoxColumn.CellValueChanged
+    Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTextBoxColumn.CellValueChanged
         ' Force DeductionStatus to always be PENDING unless explicitly set to COMPLETE
         ' If changed to COMPLETE, reset SD Remaining to 2500
         If e.RowIndex >= 0 AndAlso dgvTextBoxColumn.Columns(e.ColumnIndex).Name = "DeductionStatus" Then
@@ -262,17 +266,17 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
             Catch
                 cellValue = ""
             End Try
-            
+
             ' Normalize the value
             Dim normalizedValue As String = If(String.IsNullOrWhiteSpace(cellValue), "PENDING", cellValue.Trim().ToUpper())
-            
+
             If normalizedValue = "COMPLETE" Then
                 ' Reset SD Remaining to 2500
                 dgvTextBoxColumn.Rows(e.RowIndex).Cells("colSDRemaining").Value = "₱2,500.00"
-                
+
                 ' Set period end date to current date when SD resets
                 dgvTextBoxColumn.Rows(e.RowIndex).Cells("colPeriodEnd").Value = DateTime.Now.ToString("yyyy-MM-dd")
-                
+
                 ' Update in SalesTracker
                 Dim empNoObj = dgvTextBoxColumn.Rows(e.RowIndex).Cells("colEmpNo").Value
                 Dim empNo As String = If(empNoObj IsNot Nothing, empNoObj.ToString(), "")
@@ -291,7 +295,7 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
                     dgvTextBoxColumn.Rows(e.RowIndex).Cells("DeductionStatus").Value = "PENDING"
                 Catch
                 End Try
-                
+
                 Dim empNoObj = dgvTextBoxColumn.Rows(e.RowIndex).Cells("colEmpNo").Value
                 Dim empNo As String = If(empNoObj IsNot Nothing, empNoObj.ToString(), "")
                 If Not String.IsNullOrEmpty(empNo) Then
@@ -312,7 +316,7 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
            e.Context = DataGridViewDataErrorContexts.CurrentCellChange Then
             e.ThrowException = False
             e.Cancel = True
-            
+
             ' If it's the DeductionStatus column, force to PENDING
             If e.ColumnIndex >= 0 AndAlso dgvTextBoxColumn.Columns(e.ColumnIndex).Name = "DeductionStatus" Then
                 Try
@@ -323,7 +327,7 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
         End If
     End Sub
 
-' Add new employee to the salary deduction grid
+    ' Add new employee to the salary deduction grid
     Public Sub AddEmployee(empNo As String, username As String, fullName As String, position As String, sdRemaining As Decimal, empStatus As String, deductionStatus As String)
         If dgvTextBoxColumn IsNot Nothing Then
             ' Always set DeductionStatus to PENDING
@@ -534,6 +538,108 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
     End Sub
 
     Private Sub lblCompletedDeductionTitle_Click(sender As Object, e As EventArgs) Handles lblCompletedDeductionTitle.Click
+
+    End Sub
+
+    Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
+
+        sidebarExpanded = Not sidebarExpanded
+
+        If sidebarExpanded Then
+            ExpandSidebar()
+        Else
+            CollapseSidebar()
+        End If
+
+    End Sub
+
+
+    Private Sub CollapseSidebar()
+
+        Dim sidebar As Control = btnMenu.Parent
+
+        If sidebar Is Nothing Then Exit Sub
+
+        'Collapse sidebar
+        sidebar.Width = 65
+
+        MoveDashboardContents(-155)
+
+        'Move main content beside collapsed sidebar
+        pnlMainContent.Left = 65
+        pnlMainContent.Width = Me.ClientSize.Width - 65
+
+        'Change buttons to icons
+        btnDashboard.Text = "📊"
+        btnInventory.Text = "📋"
+        btnSalaryDeduction.Text = "💳"
+        btnReports.Text = "📈"
+        btnSettings.Text = "⚙️"
+        btnLogout.Text = "🚪"
+
+        'Center buttons
+        Dim sidebarButtons As Button() = {
+        btnDashboard,
+        btnInventory,
+        btnSalaryDeduction,
+        btnReports,
+        btnSettings,
+        btnLogout
+    }
+
+        For Each btn As Button In sidebarButtons
+            If btn IsNot Nothing Then
+                btn.Width = 65
+                btn.Left = 0
+                btn.TextAlign = ContentAlignment.MiddleCenter
+            End If
+        Next
+
+    End Sub
+
+
+    Private Sub ExpandSidebar()
+
+        Dim sidebar As Control = btnMenu.Parent
+
+        If sidebar Is Nothing Then Exit Sub
+
+        'Expand sidebar
+        sidebar.Width = 220
+
+        MoveDashboardContents(155)
+
+        'Move main content beside expanded sidebar
+        pnlMainContent.Left = 220
+        pnlMainContent.Width = Me.ClientSize.Width - 220
+
+        'Restore button text
+        AddEmojisToSidebar()
+
+        'Restore buttons
+        Dim sidebarButtons As Button() = {
+        btnDashboard,
+        btnInventory,
+        btnSalaryDeduction,
+        btnReports,
+        btnSettings,
+        btnLogout
+    }
+
+        For Each btn As Button In sidebarButtons
+            If btn IsNot Nothing Then
+                btn.Width = 220
+                btn.Left = 0
+                btn.TextAlign = ContentAlignment.MiddleLeft
+            End If
+        Next
+
+    End Sub
+    Private Sub MoveDashboardContents(amount As Integer)
+
+        For Each ctrl As Control In pnlDashboardView.Controls
+            ctrl.Left += amount
+        Next
 
     End Sub
 End Class
