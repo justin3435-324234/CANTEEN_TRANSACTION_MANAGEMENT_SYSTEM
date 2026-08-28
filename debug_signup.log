@@ -1,7 +1,0 @@
-2026-08-28 04:37:49 SIGNUP txtUsername='titeka' usernameVar='titeka' UsernameProp='titeka' EmpNo='EMP-002' FullName='titi malaki'
-2026-08-28 04:37:49 POS after dialog empNo='EMP-002' signupUsername='titeka' UsernameProp='titeka' EmpNoProp='EMP-002'
-2026-08-28 04:37:49 POS before AddEmployee empNo='EMP-002' signupUsername='titeka' empName='titi malaki'
-2026-08-28 04:37:49 AddEmployee empNo='EMP-002' usernameParam='titeka' fullName='titi malaki'
-2026-08-28 04:38:57 SIGNUP txtUsername='titika' usernameVar='titika' UsernameProp='titika' EmpNo='EMP-001' FullName='titi laki'
-2026-08-28 04:38:57 DASHBOARD btnAdd empNo='EMP-001' username='titika' fullName='titi laki'
-2026-08-28 04:38:58 AddEmployee empNo='EMP-001' usernameParam='titika' fullName='titi laki'

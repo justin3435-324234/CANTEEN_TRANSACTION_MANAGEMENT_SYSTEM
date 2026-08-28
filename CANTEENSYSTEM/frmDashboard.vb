@@ -404,7 +404,7 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
 
 #Region "Salary Deduction View - Button Actions"
 
-    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs)
         ' btnEdit is the ADD button in pnlSalaryDeductionView - just show signup
         Dim signup As New frmEmployeeSignUp()
         If signup.ShowDialog() = DialogResult.OK Then
@@ -427,7 +427,7 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
         End If
     End Sub
 
-    Private Sub btnEdit1_Click(sender As Object, e As EventArgs) Handles btnEdit1.Click
+    Private Sub btnEdit1_Click(sender As Object, e As EventArgs)
         Dim row As DataGridViewRow = GetSelectedSalaryRow()
         If row Is Nothing Then
             MessageBox.Show("Please select an employee to edit.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -455,7 +455,7 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
         MessageBox.Show("Employee updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
+    Private Sub btnView_Click(sender As Object, e As EventArgs)
         Dim row As DataGridViewRow = GetSelectedSalaryRow()
         If row Is Nothing Then
             MessageBox.Show("Please select an employee to view.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -494,7 +494,7 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
         MessageBox.Show(details, "Employee Details - " & empNo, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs)
         Dim row As DataGridViewRow = GetSelectedSalaryRow()
         If row Is Nothing Then
             MessageBox.Show("Please select an employee to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -518,6 +518,22 @@ Private Sub dgvTextBoxColumn_CellValueChanged(sender As Object, e As DataGridVie
 #End Region
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRecentTransactions.CellContentClick
+
+    End Sub
+
+    Private Sub cardSalaryDeduction_Paint(sender As Object, e As PaintEventArgs) Handles cardSalaryDeduction.Paint
+
+    End Sub
+
+    Private Sub pnlDashboardView_Paint(sender As Object, e As PaintEventArgs) Handles pnlDashboardView.Paint
+
+    End Sub
+
+    Private Sub lblItemsSoldVal_Click(sender As Object, e As EventArgs) Handles lblItemsSoldVal.Click
+
+    End Sub
+
+    Private Sub lblCompletedDeductionTitle_Click(sender As Object, e As EventArgs) Handles lblCompletedDeductionTitle.Click
 
     End Sub
 End Class

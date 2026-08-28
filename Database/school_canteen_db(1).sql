@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2026 at 05:44 PM
+-- Generation Time: Aug 28, 2026 at 07:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -74,9 +74,6 @@ CREATE TABLE `employees` (
   `status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `pin` varchar(4) NOT NULL DEFAULT '1234',
-  `sd_limit` decimal(10,2) NOT NULL DEFAULT 2500.00,
-  `sd_remaining` decimal(10,2) NOT NULL DEFAULT 2500.00,
-  `sd_status` varchar(20) NOT NULL DEFAULT 'Available',
   `deduction_status` varchar(20) NOT NULL DEFAULT 'Pending',
   `period_start` date DEFAULT NULL,
   `period_end` date DEFAULT NULL
@@ -86,8 +83,37 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`employee_number`, `username`, `full_name`, `position`, `employee_type`, `status`, `created_at`, `pin`, `sd_limit`, `sd_remaining`, `sd_status`, `deduction_status`, `period_start`, `period_end`) VALUES
-('EMP-001', 'john.doe', 'John Doe', 'Staff', 'Employee', 'Active', '2026-08-27 17:00:00', '1234', 2500.00, 2500.00, 'Available', 'Pending', NULL, NULL);
+INSERT INTO `employees` (`employee_number`, `username`, `full_name`, `position`, `employee_type`, `status`, `created_at`, `pin`, `deduction_status`, `period_start`, `period_end`) VALUES
+('EMP-001', 'john.doe', 'John Doe', 'Staff', 'Employee', 'Active', '2026-08-27 17:00:00', '1234', 'Pending', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kiosk_orders`
+--
+
+CREATE TABLE `kiosk_orders` (
+  `kiosk_order_id` int(11) NOT NULL,
+  `order_number` varchar(30) NOT NULL,
+  `order_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `total_amount` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `status` varchar(20) NOT NULL DEFAULT 'Pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kiosk_order_details`
+--
+
+CREATE TABLE `kiosk_order_details` (
+  `kiosk_order_detail_id` int(11) NOT NULL,
+  `kiosk_order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `unit_price` decimal(10,2) NOT NULL,
+  `subtotal` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -250,6 +276,21 @@ ALTER TABLE `employees`
   ADD PRIMARY KEY (`employee_number`);
 
 --
+-- Indexes for table `kiosk_orders`
+--
+ALTER TABLE `kiosk_orders`
+  ADD PRIMARY KEY (`kiosk_order_id`),
+  ADD UNIQUE KEY `order_number` (`order_number`);
+
+--
+-- Indexes for table `kiosk_order_details`
+--
+ALTER TABLE `kiosk_order_details`
+  ADD PRIMARY KEY (`kiosk_order_detail_id`),
+  ADD KEY `fk_kiosk_order` (`kiosk_order_id`),
+  ADD KEY `fk_kiosk_product` (`product_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -311,6 +352,18 @@ ALTER TABLE `categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `kiosk_orders`
+--
+ALTER TABLE `kiosk_orders`
+  MODIFY `kiosk_order_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `kiosk_order_details`
+--
+ALTER TABLE `kiosk_order_details`
+  MODIFY `kiosk_order_detail_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -355,6 +408,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `audit_logs`
   ADD CONSTRAINT `fk_audit_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `kiosk_order_details`
+--
+ALTER TABLE `kiosk_order_details`
+  ADD CONSTRAINT `fk_kiosk_order` FOREIGN KEY (`kiosk_order_id`) REFERENCES `kiosk_orders` (`kiosk_order_id`),
+  ADD CONSTRAINT `fk_kiosk_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
 -- Constraints for table `products`
