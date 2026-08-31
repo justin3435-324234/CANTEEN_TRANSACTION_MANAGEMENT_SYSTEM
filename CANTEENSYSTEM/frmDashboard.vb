@@ -541,6 +541,9 @@ Public Class frmDashboard
 
     End Sub
 
+
+
+
     Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
 
         sidebarExpanded = Not sidebarExpanded
@@ -561,13 +564,7 @@ Public Class frmDashboard
         If sidebar Is Nothing Then Exit Sub
 
         'Collapse sidebar
-        sidebar.Width = 65
-
-        MoveDashboardContents(-155)
-
-        'Move main content beside collapsed sidebar
-        pnlMainContent.Left = 65
-        pnlMainContent.Width = Me.ClientSize.Width - 65
+        sidebar.Width = 67
 
         'Change buttons to icons
         btnDashboard.Text = "📊"
@@ -588,12 +585,15 @@ Public Class frmDashboard
     }
 
         For Each btn As Button In sidebarButtons
+
             If btn IsNot Nothing Then
-                btn.Width = 65
+                btn.Width = 67
                 btn.Left = 0
                 btn.TextAlign = ContentAlignment.MiddleCenter
             End If
+
         Next
+
 
     End Sub
 
@@ -605,13 +605,7 @@ Public Class frmDashboard
         If sidebar Is Nothing Then Exit Sub
 
         'Expand sidebar
-        sidebar.Width = 220
-
-        MoveDashboardContents(155)
-
-        'Move main content beside expanded sidebar
-        pnlMainContent.Left = 220
-        pnlMainContent.Width = Me.ClientSize.Width - 220
+        sidebar.Width = 216
 
         'Restore button text
         AddEmojisToSidebar()
@@ -627,14 +621,19 @@ Public Class frmDashboard
     }
 
         For Each btn As Button In sidebarButtons
+
             If btn IsNot Nothing Then
-                btn.Width = 220
+                btn.Width = 216
                 btn.Left = 0
                 btn.TextAlign = ContentAlignment.MiddleLeft
             End If
+
         Next
 
+
     End Sub
+
+
     Private Sub MoveDashboardContents(amount As Integer)
 
         For Each ctrl As Control In pnlDashboardView.Controls
