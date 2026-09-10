@@ -1,11 +1,6 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class frmDashboard
-    Private sidebarExpanded As Boolean = True
-
-    Private Const SIDEBAR_EXPANDED_WIDTH As Integer = 220
-    Private Const SIDEBAR_COLLAPSED_WIDTH As Integer = 65
-
     Private userRole As String
 
     Public Sub New(role As String)
@@ -127,7 +122,7 @@ Public Class frmDashboard
             Case "btnSalaryDeduction"
                 If pnlSalaryDeductionView IsNot Nothing Then SwitchView(pnlSalaryDeductionView, btn)
             Case "btnReports"
-                If pnlReportsView IsNot Nothing Then SwitchView(pnlReportsView, btn)
+                If Me.btnPrint IsNot Nothing Then SwitchView(Me.btnPrint, btn)
             Case "btnSettings"
                 If pnlSettingsView IsNot Nothing Then SwitchView(pnlSettingsView, btn)
         End Select
@@ -167,6 +162,10 @@ Public Class frmDashboard
                 btn.ForeColor = Color.Black
             End If
         Next
+        ' Ensure Reports view (btnPrint) stays Navy Blue and does not turn Yellow/Gold
+        If btnPrint IsNot Nothing Then
+            btnPrint.BackColor = Color.FromArgb(0, 0, 64)
+        End If
     End Sub
 
     ' --- NATIVE CHART STYLING ---
@@ -544,101 +543,7 @@ Public Class frmDashboard
 
 
 
-    Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
-
-        sidebarExpanded = Not sidebarExpanded
-
-        If sidebarExpanded Then
-            ExpandSidebar()
-        Else
-            CollapseSidebar()
-        End If
-
-    End Sub
-
-
-    Private Sub CollapseSidebar()
-
-        Dim sidebar As Control = btnMenu.Parent
-
-        If sidebar Is Nothing Then Exit Sub
-
-        'Collapse sidebar
-        sidebar.Width = 67
-
-        'Change buttons to icons
-        btnDashboard.Text = "📊"
-        btnInventory.Text = "📋"
-        btnSalaryDeduction.Text = "💳"
-        btnReports.Text = "📈"
-        btnSettings.Text = "⚙️"
-        btnLogout.Text = "🚪"
-
-        'Center buttons
-        Dim sidebarButtons As Button() = {
-        btnDashboard,
-        btnInventory,
-        btnSalaryDeduction,
-        btnReports,
-        btnSettings,
-        btnLogout
-    }
-
-        For Each btn As Button In sidebarButtons
-
-            If btn IsNot Nothing Then
-                btn.Width = 67
-                btn.Left = 0
-                btn.TextAlign = ContentAlignment.MiddleCenter
-            End If
-
-        Next
-
-
-    End Sub
-
-
-    Private Sub ExpandSidebar()
-
-        Dim sidebar As Control = btnMenu.Parent
-
-        If sidebar Is Nothing Then Exit Sub
-
-        'Expand sidebar
-        sidebar.Width = 216
-
-        'Restore button text
-        AddEmojisToSidebar()
-
-        'Restore buttons
-        Dim sidebarButtons As Button() = {
-        btnDashboard,
-        btnInventory,
-        btnSalaryDeduction,
-        btnReports,
-        btnSettings,
-        btnLogout
-    }
-
-        For Each btn As Button In sidebarButtons
-
-            If btn IsNot Nothing Then
-                btn.Width = 216
-                btn.Left = 0
-                btn.TextAlign = ContentAlignment.MiddleLeft
-            End If
-
-        Next
-
-
-    End Sub
-
-
-    Private Sub MoveDashboardContents(amount As Integer)
-
-        For Each ctrl As Control In pnlDashboardView.Controls
-            ctrl.Left += amount
-        Next
+    Private Sub pnlReportsView_Paint(sender As Object, e As PaintEventArgs) Handles btnPrint.Paint
 
     End Sub
 End Class

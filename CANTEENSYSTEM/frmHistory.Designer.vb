@@ -25,18 +25,21 @@ Partial Class frmHistory
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.pnlStockOut = New System.Windows.Forms.Panel()
-        Me.lblTotalMovements = New System.Windows.Forms.Label()
         Me.pnlTotalMovements = New System.Windows.Forms.Panel()
+        Me.lblTotalMovementsValue = New System.Windows.Forms.Label()
+        Me.lblTotalMovements = New System.Windows.Forms.Label()
+        Me.pnlStockOut = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.lblStockOutValue = New System.Windows.Forms.Label()
+        Me.lblStockOut = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lblStockInValue = New System.Windows.Forms.Label()
         Me.lblStockIn = New System.Windows.Forms.Label()
         Me.pnlStockIn = New System.Windows.Forms.Panel()
-        Me.lblStockOut = New System.Windows.Forms.Label()
-        Me.Panel7 = New System.Windows.Forms.Panel()
         Me.txtSearchHistory = New System.Windows.Forms.TextBox()
         Me.cboMovementType = New System.Windows.Forms.ComboBox()
         Me.lblType = New System.Windows.Forms.Label()
@@ -53,17 +56,14 @@ Partial Class frmHistory
         Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colUser = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colRemarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblTotalMovementsValue = New System.Windows.Forms.Label()
-        Me.lblStockInValue = New System.Windows.Forms.Label()
-        Me.lblStockOutValue = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.pnlStockOut.SuspendLayout()
         Me.pnlTotalMovements.SuspendLayout()
+        Me.pnlStockOut.SuspendLayout()
+        Me.Panel7.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.pnlStockIn.SuspendLayout()
-        Me.Panel7.SuspendLayout()
         CType(Me.dgvInventoryHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -75,17 +75,6 @@ Partial Class frmHistory
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(799, 54)
         Me.Panel1.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Gold
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(204, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "INVENTORY HISTORY"
         '
         'Panel2
         '
@@ -109,6 +98,17 @@ Partial Class frmHistory
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Track all stock movements and inventory changes"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Gold
+        Me.Label1.Location = New System.Drawing.Point(3, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(204, 25)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "INVENTORY HISTORY"
+        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.Gold
@@ -118,14 +118,26 @@ Partial Class frmHistory
         Me.Panel3.Size = New System.Drawing.Size(170, 84)
         Me.Panel3.TabIndex = 1
         '
-        'pnlStockOut
+        'pnlTotalMovements
         '
-        Me.pnlStockOut.BackColor = System.Drawing.Color.Gold
-        Me.pnlStockOut.Controls.Add(Me.Panel7)
-        Me.pnlStockOut.Location = New System.Drawing.Point(618, 290)
-        Me.pnlStockOut.Name = "pnlStockOut"
-        Me.pnlStockOut.Size = New System.Drawing.Size(170, 84)
-        Me.pnlStockOut.TabIndex = 3
+        Me.pnlTotalMovements.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlTotalMovements.Controls.Add(Me.lblTotalMovementsValue)
+        Me.pnlTotalMovements.Controls.Add(Me.lblTotalMovements)
+        Me.pnlTotalMovements.Location = New System.Drawing.Point(3, 3)
+        Me.pnlTotalMovements.Name = "pnlTotalMovements"
+        Me.pnlTotalMovements.Size = New System.Drawing.Size(164, 78)
+        Me.pnlTotalMovements.TabIndex = 2
+        '
+        'lblTotalMovementsValue
+        '
+        Me.lblTotalMovementsValue.AutoSize = True
+        Me.lblTotalMovementsValue.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalMovementsValue.ForeColor = System.Drawing.Color.Gold
+        Me.lblTotalMovementsValue.Location = New System.Drawing.Point(56, 29)
+        Me.lblTotalMovementsValue.Name = "lblTotalMovementsValue"
+        Me.lblTotalMovementsValue.Size = New System.Drawing.Size(33, 37)
+        Me.lblTotalMovementsValue.TabIndex = 1
+        Me.lblTotalMovementsValue.Text = "0"
         '
         'lblTotalMovements
         '
@@ -138,15 +150,46 @@ Partial Class frmHistory
         Me.lblTotalMovements.TabIndex = 0
         Me.lblTotalMovements.Text = "TOTAL MOVEMENTS"
         '
-        'pnlTotalMovements
+        'pnlStockOut
         '
-        Me.pnlTotalMovements.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.pnlTotalMovements.Controls.Add(Me.lblTotalMovementsValue)
-        Me.pnlTotalMovements.Controls.Add(Me.lblTotalMovements)
-        Me.pnlTotalMovements.Location = New System.Drawing.Point(3, 3)
-        Me.pnlTotalMovements.Name = "pnlTotalMovements"
-        Me.pnlTotalMovements.Size = New System.Drawing.Size(164, 78)
-        Me.pnlTotalMovements.TabIndex = 2
+        Me.pnlStockOut.BackColor = System.Drawing.Color.Gold
+        Me.pnlStockOut.Controls.Add(Me.Panel7)
+        Me.pnlStockOut.Location = New System.Drawing.Point(618, 290)
+        Me.pnlStockOut.Name = "pnlStockOut"
+        Me.pnlStockOut.Size = New System.Drawing.Size(170, 84)
+        Me.pnlStockOut.TabIndex = 3
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel7.Controls.Add(Me.lblStockOutValue)
+        Me.Panel7.Controls.Add(Me.lblStockOut)
+        Me.Panel7.Location = New System.Drawing.Point(3, 3)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(164, 78)
+        Me.Panel7.TabIndex = 2
+        '
+        'lblStockOutValue
+        '
+        Me.lblStockOutValue.AutoSize = True
+        Me.lblStockOutValue.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStockOutValue.ForeColor = System.Drawing.Color.Gold
+        Me.lblStockOutValue.Location = New System.Drawing.Point(56, 30)
+        Me.lblStockOutValue.Name = "lblStockOutValue"
+        Me.lblStockOutValue.Size = New System.Drawing.Size(33, 37)
+        Me.lblStockOutValue.TabIndex = 3
+        Me.lblStockOutValue.Text = "0"
+        '
+        'lblStockOut
+        '
+        Me.lblStockOut.AutoSize = True
+        Me.lblStockOut.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStockOut.ForeColor = System.Drawing.Color.Gold
+        Me.lblStockOut.Location = New System.Drawing.Point(42, 10)
+        Me.lblStockOut.Name = "lblStockOut"
+        Me.lblStockOut.Size = New System.Drawing.Size(90, 20)
+        Me.lblStockOut.TabIndex = 0
+        Me.lblStockOut.Text = "STOCK OUT"
         '
         'Panel5
         '
@@ -157,6 +200,17 @@ Partial Class frmHistory
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(164, 78)
         Me.Panel5.TabIndex = 2
+        '
+        'lblStockInValue
+        '
+        Me.lblStockInValue.AutoSize = True
+        Me.lblStockInValue.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStockInValue.ForeColor = System.Drawing.Color.Gold
+        Me.lblStockInValue.Location = New System.Drawing.Point(56, 29)
+        Me.lblStockInValue.Name = "lblStockInValue"
+        Me.lblStockInValue.Size = New System.Drawing.Size(33, 37)
+        Me.lblStockInValue.TabIndex = 2
+        Me.lblStockInValue.Text = "0"
         '
         'lblStockIn
         '
@@ -177,27 +231,6 @@ Partial Class frmHistory
         Me.pnlStockIn.Name = "pnlStockIn"
         Me.pnlStockIn.Size = New System.Drawing.Size(170, 84)
         Me.pnlStockIn.TabIndex = 3
-        '
-        'lblStockOut
-        '
-        Me.lblStockOut.AutoSize = True
-        Me.lblStockOut.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStockOut.ForeColor = System.Drawing.Color.Gold
-        Me.lblStockOut.Location = New System.Drawing.Point(42, 10)
-        Me.lblStockOut.Name = "lblStockOut"
-        Me.lblStockOut.Size = New System.Drawing.Size(90, 20)
-        Me.lblStockOut.TabIndex = 0
-        Me.lblStockOut.Text = "STOCK OUT"
-        '
-        'Panel7
-        '
-        Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Panel7.Controls.Add(Me.lblStockOutValue)
-        Me.Panel7.Controls.Add(Me.lblStockOut)
-        Me.Panel7.Location = New System.Drawing.Point(3, 3)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(164, 78)
-        Me.Panel7.TabIndex = 2
         '
         'txtSearchHistory
         '
@@ -359,39 +392,6 @@ Partial Class frmHistory
         Me.colRemarks.Name = "colRemarks"
         Me.colRemarks.ReadOnly = True
         '
-        'lblTotalMovementsValue
-        '
-        Me.lblTotalMovementsValue.AutoSize = True
-        Me.lblTotalMovementsValue.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalMovementsValue.ForeColor = System.Drawing.Color.Gold
-        Me.lblTotalMovementsValue.Location = New System.Drawing.Point(56, 29)
-        Me.lblTotalMovementsValue.Name = "lblTotalMovementsValue"
-        Me.lblTotalMovementsValue.Size = New System.Drawing.Size(33, 37)
-        Me.lblTotalMovementsValue.TabIndex = 1
-        Me.lblTotalMovementsValue.Text = "0"
-        '
-        'lblStockInValue
-        '
-        Me.lblStockInValue.AutoSize = True
-        Me.lblStockInValue.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStockInValue.ForeColor = System.Drawing.Color.Gold
-        Me.lblStockInValue.Location = New System.Drawing.Point(56, 29)
-        Me.lblStockInValue.Name = "lblStockInValue"
-        Me.lblStockInValue.Size = New System.Drawing.Size(33, 37)
-        Me.lblStockInValue.TabIndex = 2
-        Me.lblStockInValue.Text = "0"
-        '
-        'lblStockOutValue
-        '
-        Me.lblStockOutValue.AutoSize = True
-        Me.lblStockOutValue.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStockOutValue.ForeColor = System.Drawing.Color.Gold
-        Me.lblStockOutValue.Location = New System.Drawing.Point(56, 30)
-        Me.lblStockOutValue.Name = "lblStockOutValue"
-        Me.lblStockOutValue.Size = New System.Drawing.Size(33, 37)
-        Me.lblStockOutValue.TabIndex = 3
-        Me.lblStockOutValue.Text = "0"
-        '
         'frmHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -419,14 +419,14 @@ Partial Class frmHistory
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
-        Me.pnlStockOut.ResumeLayout(False)
         Me.pnlTotalMovements.ResumeLayout(False)
         Me.pnlTotalMovements.PerformLayout()
+        Me.pnlStockOut.ResumeLayout(False)
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.pnlStockIn.ResumeLayout(False)
-        Me.Panel7.ResumeLayout(False)
-        Me.Panel7.PerformLayout()
         CType(Me.dgvInventoryHistory, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
